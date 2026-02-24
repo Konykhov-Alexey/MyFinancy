@@ -4,6 +4,6 @@
 
 <!-- Phase 4: будет заменён на экран целей накопления -->
 <StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-           style="-fx-background-color: #12121E;">
+           style="-fx-background-color: #0D0D0F;">
     <Label text="Цели накопления — реализация в Phase 4" styleClass="placeholder-label"/>
 </StackPane>

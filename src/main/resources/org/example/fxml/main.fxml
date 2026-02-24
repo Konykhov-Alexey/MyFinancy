@@ -13,15 +13,17 @@
             styleClass="root-pane">
 
     <left>
-        <VBox styleClass="sidebar" prefWidth="220">
+        <VBox styleClass="sidebar" prefWidth="228">
             <Label text="MyFinancy" styleClass="app-title"/>
             <Separator/>
-            <Button fx:id="btnDashboard"    text="Главная"    onAction="#showDashboard"    styleClass="nav-button" maxWidth="Infinity"/>
-            <Button fx:id="btnTransactions" text="Транзакции" onAction="#showTransactions" styleClass="nav-button" maxWidth="Infinity"/>
-            <Button fx:id="btnCategories"   text="Категории"  onAction="#showCategories"   styleClass="nav-button" maxWidth="Infinity"/>
-            <Button fx:id="btnGoals"        text="Цели"       onAction="#showGoals"        styleClass="nav-button" maxWidth="Infinity"/>
-            <Button fx:id="btnAnalytics"    text="Аналитика"  onAction="#showAnalytics"    styleClass="nav-button" maxWidth="Infinity"/>
+            <Button fx:id="btnDashboard"    text="  Главная"      onAction="#showDashboard"    styleClass="nav-button" maxWidth="Infinity"/>
+            <Button fx:id="btnTransactions" text="  Транзакции"   onAction="#showTransactions" styleClass="nav-button" maxWidth="Infinity"/>
+            <Button fx:id="btnCategories"   text="  Категории"    onAction="#showCategories"   styleClass="nav-button" maxWidth="Infinity"/>
+            <Button fx:id="btnGoals"        text="  Цели"         onAction="#showGoals"        styleClass="nav-button" maxWidth="Infinity"/>
+            <Button fx:id="btnAnalytics"    text="  Аналитика"   onAction="#showAnalytics"    styleClass="nav-button" maxWidth="Infinity"/>
             <Region VBox.vgrow="ALWAYS"/>
+            <Separator/>
+            <Label text="MyFinancy v1.0" styleClass="section-title" style="-fx-padding: 12 20;"/>
         </VBox>
     </left>
 

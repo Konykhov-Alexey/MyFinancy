@@ -4,6 +4,6 @@
 
 <!-- Phase 6: будет заменён на экран аналитики -->
 <StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-           style="-fx-background-color: #12121E;">
+           style="-fx-background-color: #0D0D0F;">
     <Label text="Аналитика — реализация в Phase 6" styleClass="placeholder-label"/>
 </StackPane>

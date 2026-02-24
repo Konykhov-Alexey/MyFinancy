@@ -1,3 +1,9 @@
+/* ================================================================
+   MyFinancy — Design System
+   Theme: Dark / Hot-Pink (#FF2D55)
+   ================================================================ */
+
+/* ── Global ─────────────────────────────────────────────────────── */
 
 .root {
     -fx-font-family: "Inter", "Ubuntu", "Noto Sans", "Segoe UI", sans-serif;
@@ -5,104 +11,128 @@
 }
 
 .root-pane {
-    -fx-background-color: #0C0D10;
+    -fx-background-color: #0D0D0F;
 }
 
-/* ==================================================================
+/* ================================================================
    SIDEBAR
-   ================================================================== */
+   ================================================================ */
 
 .sidebar {
-    -fx-background-color: #09090D;
-    -fx-spacing: 1;
+    -fx-background-color: #0A0A0D;
+    -fx-spacing: 2;
     -fx-padding: 0;
     -fx-pref-width: 228;
     -fx-min-width: 228;
-    -fx-border-color: transparent #161820 transparent transparent;
+    -fx-border-color: transparent #1A1A22 transparent transparent;
     -fx-border-width: 0 1 0 0;
 }
 
 .app-title {
-    -fx-text-fill: #EEEEF2;
-    -fx-font-size: 17px;
+    -fx-text-fill: #F0F0F4;
+    -fx-font-size: 16px;
     -fx-font-weight: bold;
-    -fx-padding: 26 20 20 20;
+    -fx-padding: 24 20 8 20;
+}
+
+.app-subtitle {
+    -fx-text-fill: #3A3A50;
+    -fx-font-size: 10px;
+    -fx-padding: 0 20 18 20;
+    -fx-letter-spacing: 1;
 }
 
 .sidebar > .separator {
-    -fx-padding: 0 0 6 0;
+    -fx-padding: 0 0 8 0;
 }
 
 .separator .line {
-    -fx-border-color: #161820;
+    -fx-border-color: #1A1A22;
     -fx-border-width: 1 0 0 0;
 }
 
-/* ==================================================================
+/* ================================================================
    NAVIGATION
-   ================================================================== */
+   ================================================================ */
 
 .nav-button {
     -fx-background-color: transparent;
-    -fx-text-fill: #4E4E6A;
+    -fx-text-fill: #44445A;
     -fx-font-size: 13px;
     -fx-font-weight: normal;
-    -fx-padding: 11 18;
+    -fx-padding: 10 16 10 20;
     -fx-alignment: CENTER_LEFT;
     -fx-cursor: hand;
     -fx-background-radius: 0;
-    -fx-border-color: transparent;
-}
-
-.nav-button:hover {
-    -fx-background-color: #131420;
-    -fx-text-fill: #B0B0CC;
-}
-
-.nav-button-active {
-    -fx-background-color: rgba(99, 102, 241, 0.10);
-    -fx-text-fill: #818CF8;
-    -fx-border-color: #6366F1 transparent transparent transparent;
+    -fx-border-color: transparent transparent transparent transparent;
     -fx-border-width: 0 0 0 2;
 }
 
-.nav-button-active:hover {
-    -fx-background-color: rgba(99, 102, 241, 0.16);
-    -fx-text-fill: #A5B4FC;
+.nav-button:hover {
+    -fx-background-color: rgba(255,255,255,0.03);
+    -fx-text-fill: #9090A8;
+    -fx-border-color: transparent transparent transparent #252535;
 }
 
-/* ==================================================================
+.nav-button-active {
+    -fx-background-color: rgba(255, 45, 85, 0.08);
+    -fx-text-fill: #FF2D55;
+    -fx-border-color: transparent transparent transparent #FF2D55;
+    -fx-border-width: 0 0 0 2;
+    -fx-font-weight: bold;
+}
+
+.nav-button-active:hover {
+    -fx-background-color: rgba(255, 45, 85, 0.13);
+    -fx-text-fill: #FF5070;
+}
+
+.nav-section-label {
+    -fx-text-fill: #2E2E42;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 14 20 4 20;
+    -fx-letter-spacing: 1;
+}
+
+/* ================================================================
    CONTENT AREA
-   ================================================================== */
+   ================================================================ */
 
 .content-area {
-    -fx-background-color: #0C0D10;
-    -fx-padding: 32;
+    -fx-background-color: #0D0D0F;
+    -fx-padding: 0;
 }
 
 .placeholder-label {
     -fx-font-size: 14px;
-    -fx-text-fill: #1E1F28;
+    -fx-text-fill: #252530;
 }
 
-/* ==================================================================
+/* ================================================================
    TYPOGRAPHY
-   ================================================================== */
+   ================================================================ */
 
 .page-title {
-    -fx-font-size: 22px;
+    -fx-font-size: 20px;
     -fx-font-weight: bold;
-    -fx-text-fill: #EEEEF2;
+    -fx-text-fill: #EBEBF0;
+}
+
+.page-subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: #44445A;
 }
 
 .section-title {
     -fx-font-size: 11px;
     -fx-font-weight: bold;
-    -fx-text-fill: #4E4E6A;
+    -fx-text-fill: #44445A;
+    -fx-letter-spacing: 0.5;
 }
 
 .label {
-    -fx-text-fill: #6868A0;
+    -fx-text-fill: #555570;
 }
 
 .income-label {
@@ -111,19 +141,19 @@
 }
 
 .expense-label {
-    -fx-text-fill: #EF4444;
+    -fx-text-fill: #FF2D55;
     -fx-font-weight: bold;
 }
 
 .metric-value {
     -fx-font-size: 28px;
     -fx-font-weight: bold;
-    -fx-text-fill: #EEEEF2;
+    -fx-text-fill: #EBEBF0;
 }
 
 .metric-label {
     -fx-font-size: 11px;
-    -fx-text-fill: #4E4E6A;
+    -fx-text-fill: #44445A;
 }
 
 .balance-positive {
@@ -133,255 +163,361 @@
 }
 
 .balance-negative {
-    -fx-text-fill: #EF4444;
+    -fx-text-fill: #FF2D55;
     -fx-font-size: 28px;
     -fx-font-weight: bold;
 }
 
-/* ==================================================================
+/* ================================================================
    CARDS
-   ================================================================== */
+   ================================================================ */
 
 .card {
-    -fx-background-color: #111318;
+    -fx-background-color: #111115;
     -fx-background-radius: 12;
-    -fx-border-color: #1A1B24;
+    -fx-border-color: #1C1C24;
     -fx-border-width: 1;
     -fx-border-radius: 12;
     -fx-padding: 20;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 8, 0, 0, 2);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 10, 0, 0, 3);
 }
 
 .card-raised {
-    -fx-background-color: #181920;
+    -fx-background-color: #181820;
     -fx-background-radius: 12;
-    -fx-border-color: #22232E;
+    -fx-border-color: #222230;
     -fx-border-width: 1;
     -fx-border-radius: 12;
     -fx-padding: 20;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 14, 0, 0, 4);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.55), 16, 0, 0, 5);
 }
 
-/* ==================================================================
+/* ================================================================
    BUTTONS
-   ================================================================== */
+   ================================================================ */
 
 .btn-primary {
-    -fx-background-color: #6366F1;
+    -fx-background-color: #FF2D55;
     -fx-text-fill: #FFFFFF;
     -fx-font-size: 13px;
     -fx-font-weight: bold;
-    -fx-padding: 9 20;
+    -fx-padding: 8 22;
     -fx-background-radius: 8;
     -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(99, 102, 241, 0.35), 8, 0, 0, 3);
+    -fx-effect: dropshadow(gaussian, rgba(255, 45, 85, 0.38), 10, 0, 0, 3);
 }
 
 .btn-primary:hover {
-    -fx-background-color: #7577F5;
-    -fx-effect: dropshadow(gaussian, rgba(99, 102, 241, 0.5), 12, 0, 0, 5);
+    -fx-background-color: #FF4060;
+    -fx-effect: dropshadow(gaussian, rgba(255, 45, 85, 0.52), 14, 0, 0, 5);
 }
 
 .btn-primary:pressed {
-    -fx-background-color: #4F52D3;
-    -fx-effect: none;
+    -fx-background-color: #D4193A;
+    -fx-effect: dropshadow(gaussian, rgba(255, 45, 85, 0.2), 4, 0, 0, 1);
 }
 
 .btn-success {
-    -fx-background-color: #22C55E;
+    -fx-background-color: #16A34A;
     -fx-text-fill: #FFFFFF;
     -fx-font-size: 13px;
     -fx-font-weight: bold;
-    -fx-padding: 9 20;
+    -fx-padding: 8 22;
     -fx-background-radius: 8;
     -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(34, 197, 94, 0.35), 8, 0, 0, 3);
+    -fx-effect: dropshadow(gaussian, rgba(22, 163, 74, 0.35), 8, 0, 0, 3);
 }
 
-.btn-success:hover  { -fx-background-color: #4ADE80; }
-.btn-success:pressed { -fx-background-color: #16A34A; -fx-effect: none; }
+.btn-success:hover  {
+    -fx-background-color: #22C55E;
+    -fx-effect: dropshadow(gaussian, rgba(34, 197, 94, 0.4), 10, 0, 0, 4);
+}
+.btn-success:pressed { -fx-background-color: #166534; -fx-effect: none; }
 
 .btn-danger {
     -fx-background-color: transparent;
-    -fx-text-fill: #EF4444;
+    -fx-text-fill: #FF2D55;
     -fx-font-size: 13px;
-    -fx-padding: 9 20;
+    -fx-padding: 8 22;
     -fx-background-radius: 8;
-    -fx-border-color: rgba(239, 68, 68, 0.35);
+    -fx-border-color: rgba(255, 45, 85, 0.30);
     -fx-border-radius: 8;
     -fx-border-width: 1;
     -fx-cursor: hand;
 }
 
 .btn-danger:hover {
-    -fx-background-color: rgba(239, 68, 68, 0.08);
-    -fx-border-color: #EF4444;
+    -fx-background-color: rgba(255, 45, 85, 0.08);
+    -fx-border-color: rgba(255, 45, 85, 0.7);
+}
+
+.btn-danger:pressed {
+    -fx-background-color: rgba(255, 45, 85, 0.14);
 }
 
 .btn-secondary {
-    -fx-background-color: #181920;
-    -fx-text-fill: #6868A0;
+    -fx-background-color: #161620;
+    -fx-text-fill: #5A5A78;
     -fx-font-size: 13px;
-    -fx-padding: 9 20;
+    -fx-padding: 8 22;
     -fx-background-radius: 8;
-    -fx-border-color: #22232E;
+    -fx-border-color: #222230;
     -fx-border-width: 1;
     -fx-border-radius: 8;
     -fx-cursor: hand;
 }
 
 .btn-secondary:hover {
-    -fx-background-color: #1E1F2A;
-    -fx-text-fill: #B0B0CC;
+    -fx-background-color: #1C1C28;
+    -fx-text-fill: #A0A0B8;
+    -fx-border-color: #2E2E40;
 }
 
-/* ==================================================================
+.btn-secondary:pressed {
+    -fx-background-color: #141420;
+}
+
+/* ================================================================
+   DIALOG BUTTONS (ButtonBar inside Dialog/Alert)
+   ================================================================ */
+
+.dialog-pane .button-bar {
+    -fx-padding: 12 20 16 20;
+    -fx-background-color: #0F0F12;
+    -fx-border-color: #1C1C24 transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+.dialog-pane .button-bar .button {
+    -fx-background-color: #1C1C28;
+    -fx-text-fill: #8080A0;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 22;
+    -fx-background-radius: 8;
+    -fx-border-color: #282838;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-cursor: hand;
+    -fx-focus-traversable: true;
+}
+
+.dialog-pane .button-bar .button:hover {
+    -fx-background-color: #222234;
+    -fx-text-fill: #C0C0D8;
+}
+
+.dialog-pane .button-bar .button.default-button {
+    -fx-background-color: #FF2D55;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(255, 45, 85, 0.38), 8, 0, 0, 2);
+}
+
+.dialog-pane .button-bar .button.default-button:hover {
+    -fx-background-color: #FF4060;
+    -fx-effect: dropshadow(gaussian, rgba(255, 45, 85, 0.52), 12, 0, 0, 4);
+}
+
+.dialog-pane .button-bar .button.default-button:pressed {
+    -fx-background-color: #D4193A;
+    -fx-effect: none;
+}
+
+.dialog-pane .button-bar .button.cancel-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #5A5A78;
+    -fx-border-color: #222230;
+}
+
+.dialog-pane .button-bar .button.cancel-button:hover {
+    -fx-background-color: rgba(255,255,255,0.03);
+    -fx-text-fill: #9090A8;
+}
+
+/* ================================================================
    TEXT FIELDS
-   ================================================================== */
+   ================================================================ */
 
 .text-field, .text-area {
-    -fx-background-color: #111318;
-    -fx-text-fill: #EEEEF2;
-    -fx-prompt-text-fill: #2E2E45;
+    -fx-background-color: #111115;
+    -fx-text-fill: #EBEBF0;
+    -fx-prompt-text-fill: #2A2A3C;
     -fx-background-radius: 8;
     -fx-border-radius: 8;
-    -fx-border-color: #1A1B24;
+    -fx-border-color: #1C1C24;
     -fx-border-width: 1;
     -fx-padding: 9 14;
     -fx-font-size: 13px;
+    -fx-highlight-fill: rgba(255, 45, 85, 0.25);
+    -fx-highlight-text-fill: #EBEBF0;
 }
 
 .text-field:focused, .text-area:focused {
-    -fx-border-color: #6366F1;
-    -fx-background-color: #12132A;
-    -fx-effect: dropshadow(gaussian, rgba(99, 102, 241, 0.2), 6, 0, 0, 0);
+    -fx-border-color: #FF2D55;
+    -fx-background-color: #160E12;
+    -fx-effect: dropshadow(gaussian, rgba(255, 45, 85, 0.15), 8, 0, 0, 0);
 }
 
-/* ==================================================================
+.text-field:hover, .text-area:hover {
+    -fx-border-color: #2E2E40;
+}
+
+/* ================================================================
    COMBO BOX
-   ================================================================== */
+   ================================================================ */
 
 .combo-box {
-    -fx-background-color: #111318;
+    -fx-background-color: #111115;
     -fx-background-radius: 8;
     -fx-border-radius: 8;
-    -fx-border-color: #1A1B24;
+    -fx-border-color: #1C1C24;
     -fx-border-width: 1;
     -fx-font-size: 13px;
 }
 
+.combo-box:hover {
+    -fx-border-color: #2E2E40;
+}
+
 .combo-box .list-cell {
-    -fx-text-fill: #B0B0CC;
+    -fx-text-fill: #A0A0B8;
     -fx-background-color: transparent;
     -fx-padding: 7 14;
 }
 
-.combo-box:focused { -fx-border-color: #6366F1; }
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0 8 8 0;
+    -fx-padding: 0 10 0 6;
+}
+
+.combo-box .arrow-button .arrow {
+    -fx-background-color: #44445A;
+    -fx-padding: 3.5;
+}
+
+.combo-box:hover .arrow-button .arrow {
+    -fx-background-color: #8080A0;
+}
+
+.combo-box:focused {
+    -fx-border-color: #FF2D55;
+    -fx-effect: dropshadow(gaussian, rgba(255, 45, 85, 0.15), 8, 0, 0, 0);
+}
+
+.combo-box:focused .arrow-button .arrow {
+    -fx-background-color: #FF2D55;
+}
 
 .combo-box-popup .list-view {
-    -fx-background-color: #181920;
-    -fx-border-color: #22232E;
-    -fx-border-radius: 8;
-    -fx-background-radius: 8;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 16, 0, 0, 6);
+    -fx-background-color: #17171E;
+    -fx-border-color: #222230;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.7), 20, 0, 0, 8);
+    -fx-padding: 4;
 }
 
-.combo-box-popup .list-cell:hover {
-    -fx-background-color: rgba(99, 102, 241, 0.10);
-    -fx-text-fill: #EEEEF2;
+.combo-box-popup .list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #A0A0B8;
+    -fx-padding: 8 14;
+    -fx-background-radius: 6;
 }
 
-/* ==================================================================
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: rgba(255, 45, 85, 0.10);
+    -fx-text-fill: #EBEBF0;
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: rgba(255, 45, 85, 0.16);
+    -fx-text-fill: #FF2D55;
+    -fx-font-weight: bold;
+}
+
+/* ================================================================
    TABLE
-   ================================================================== */
+   ================================================================ */
 
 .table-view {
-    -fx-background-color: #111318;
-    -fx-border-color: #1A1B24;
+    -fx-background-color: #111115;
+    -fx-border-color: #1C1C24;
     -fx-border-width: 1;
     -fx-background-radius: 12;
     -fx-border-radius: 12;
     -fx-padding: 0;
 }
 
-/* Фокус — убрать синюю обводку по умолчанию */
 .table-view:focused {
-    -fx-border-color: #1A1B24;
-    -fx-background-color: #111318;
+    -fx-border-color: #1C1C24;
+    -fx-background-color: #111115;
 }
 
-/* Внутренний scroll-контейнер */
 .table-view .virtual-flow {
-    -fx-background-color: #111318;
+    -fx-background-color: #111115;
 }
 
 /* ── Заголовок ── */
 
 .table-view .column-header-background {
-    -fx-background-color: #111318;
+    -fx-background-color: #0F0F13;
     -fx-background-radius: 12 12 0 0;
-    -fx-border-color: transparent transparent #1A1B24 transparent;
+    -fx-border-color: transparent transparent #1C1C24 transparent;
     -fx-border-width: 0 0 1 0;
 }
 
-/* Уголок справа от последнего заголовка */
 .table-view .column-header-background .filler {
-    -fx-background-color: #111318;
-    -fx-border-color: transparent transparent #1A1B24 transparent;
+    -fx-background-color: #0F0F13;
+    -fx-border-color: transparent transparent #1C1C24 transparent;
     -fx-border-width: 0 0 1 0;
 }
 
-/* Каждая ячейка заголовка */
 .table-view .column-header {
     -fx-background-color: transparent;
-    -fx-padding: 12 14;
+    -fx-padding: 10 14;
     -fx-border-color: transparent;
     -fx-size: 1;
 }
 
-/* Текст заголовка */
 .table-view .column-header .label {
-    -fx-text-fill: #4E4E6A;
+    -fx-text-fill: #44445A;
     -fx-font-weight: bold;
     -fx-font-size: 11px;
     -fx-alignment: CENTER_LEFT;
+    -fx-letter-spacing: 0.5;
 }
 
-/* Hover по заголовку */
 .table-view .column-header:hover {
-    -fx-background-color: rgba(255,255,255,0.03);
+    -fx-background-color: rgba(255,255,255,0.02);
     -fx-cursor: hand;
 }
 
-/* Линия разделителя колонок */
 .table-view .column-resize-line {
-    -fx-background-color: #2A2B38;
+    -fx-background-color: #222230;
     -fx-pref-width: 1;
 }
 
 /* ── Сортировка ── */
 
-/* Активная (сортируемая) колонка — убрать жёлтый фон */
 .table-view .column-header:sort-type-ascending,
 .table-view .column-header:sort-type-descending {
     -fx-background-color: transparent;
 }
 
-/* Текст активной колонки */
 .table-view .column-header:sort-type-ascending .label,
 .table-view .column-header:sort-type-descending .label {
-    -fx-text-fill: #6366F1;
+    -fx-text-fill: #FF2D55;
 }
 
-/* Стрелка сортировки */
 .table-view .column-header .arrow {
-    -fx-background-color: #6366F1;
+    -fx-background-color: #FF2D55;
     -fx-padding: 3px;
 }
 
-/* Точки порядка сортировки (1, 2, 3...) */
 .table-view .column-header .sort-order-dot {
-    -fx-background-color: #6366F1;
+    -fx-background-color: #FF2D55;
 }
 
 .table-view .column-header .sort-order-dots-container {
@@ -394,23 +530,32 @@
     -fx-border-color: transparent;
     -fx-table-cell-border-color: transparent;
     -fx-background-color: transparent;
-    -fx-cell-size: 42px;
+    -fx-cell-size: 44px;
 }
 
-.table-row-cell .text { -fx-fill: #B0B0CC; }
+.table-row-cell .text { -fx-fill: #A0A0B8; }
 
-.table-row-cell:odd  { -fx-background-color: #111318; }
-.table-row-cell:even { -fx-background-color: #0E0F14; }
-.table-row-cell:hover { -fx-background-color: #181920; }
+.table-row-cell:odd  { -fx-background-color: #111115; }
+.table-row-cell:even { -fx-background-color: #0F0F12; }
+.table-row-cell:hover { -fx-background-color: #191924; }
 
 .table-row-cell:selected {
-    -fx-background-color: rgba(99, 102, 241, 0.10);
+    -fx-background-color: rgba(255, 45, 85, 0.09);
 }
-.table-row-cell:selected .text { -fx-fill: #EEEEF2; }
+.table-row-cell:selected .text { -fx-fill: #EBEBF0; }
 
-/* Убрать выделение при фокусе на таблице */
 .table-view:focused .table-row-cell:selected {
-    -fx-background-color: rgba(99, 102, 241, 0.14);
+    -fx-background-color: rgba(255, 45, 85, 0.13);
+}
+
+/* Строки с разделителями */
+.table-row-cell:odd {
+    -fx-border-color: transparent transparent #16161C transparent;
+    -fx-border-width: 0 0 1 0;
+}
+.table-row-cell:even {
+    -fx-border-color: transparent transparent #16161C transparent;
+    -fx-border-width: 0 0 1 0;
 }
 
 /* ── Ячейки ── */
@@ -422,7 +567,6 @@
     -fx-background-color: transparent;
 }
 
-/* Убрать синее выделение ячейки при фокусе */
 .table-cell:focused {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
@@ -431,79 +575,92 @@
 /* ── Пустая таблица ── */
 
 .table-view .placeholder {
-    -fx-background-color: #111318;
+    -fx-background-color: #111115;
 }
 
 .table-view .placeholder .label {
-    -fx-text-fill: #2E2E45;
+    -fx-text-fill: #252535;
     -fx-font-size: 13px;
 }
 
-/* ==================================================================
+/* ================================================================
    PROGRESS BAR
-   ================================================================== */
+   ================================================================ */
 
 .progress-bar .track {
-    -fx-background-color: #1A1B24;
+    -fx-background-color: #1C1C24;
     -fx-background-radius: 6;
     -fx-pref-height: 5;
+    -fx-border-color: transparent;
 }
 
 .progress-bar .bar {
-    -fx-background-color: linear-gradient(to right, #6366F1, #818CF8);
+    -fx-background-color: linear-gradient(to right, #FF2D55, #FF6B8A);
     -fx-background-radius: 6;
     -fx-background-insets: 0;
     -fx-pref-height: 5;
-    -fx-effect: dropshadow(gaussian, rgba(99, 102, 241, 0.45), 4, 0, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(255, 45, 85, 0.42), 5, 0, 0, 0);
 }
 
-/* ==================================================================
+/* ================================================================
    STATUS LABELS
-   ================================================================== */
+   ================================================================ */
 
-.status-active    { -fx-text-fill: #6366F1; -fx-font-weight: bold; -fx-font-size: 12px; }
+.status-active    { -fx-text-fill: #FF2D55; -fx-font-weight: bold; -fx-font-size: 12px; }
 .status-completed { -fx-text-fill: #22C55E; -fx-font-weight: bold; -fx-font-size: 12px; }
-.status-cancelled { -fx-text-fill: #2E2E45; -fx-font-size: 12px; }
+.status-cancelled { -fx-text-fill: #2E2E42; -fx-font-size: 12px; }
 
-/* ==================================================================
+/* ================================================================
    DIALOG
-   ================================================================== */
+   ================================================================ */
 
 .dialog-pane {
-    -fx-background-color: #111318;
-    -fx-border-color: #1A1B24;
+    -fx-background-color: #111115;
+    -fx-border-color: #1C1C24;
     -fx-border-width: 1;
     -fx-border-radius: 14;
     -fx-background-radius: 14;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.7), 32, 0, 0, 12);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 36, 0, 0, 14);
+    -fx-padding: 0;
 }
 
 .dialog-pane .header-panel {
-    -fx-background-color: #0E0F14;
+    -fx-background-color: #0D0D10;
     -fx-background-radius: 14 14 0 0;
-    -fx-border-color: transparent transparent #1A1B24 transparent;
+    -fx-border-color: transparent transparent #1C1C24 transparent;
     -fx-border-width: 0 0 1 0;
+    -fx-padding: 18 24;
 }
 
 .dialog-pane .header-panel .label {
-    -fx-text-fill: #EEEEF2;
+    -fx-text-fill: #EBEBF0;
     -fx-font-size: 15px;
     -fx-font-weight: bold;
 }
 
+.dialog-pane .header-panel .graphic-container {
+    -fx-padding: 0 12 0 0;
+}
+
+.dialog-pane > .content {
+    -fx-padding: 4 0 0 0;
+    -fx-background-color: #111115;
+}
+
 .dialog-pane .content.label {
-    -fx-text-fill: #6868A0;
+    -fx-text-fill: #606080;
+    -fx-padding: 16 24;
 }
 
 .dialog-pane .label {
-    -fx-text-fill: #6868A0;
+    -fx-text-fill: #606080;
     -fx-font-size: 13px;
     -fx-min-width: 90;
 }
 
-/* ==================================================================
+/* ================================================================
    SCROLL
-   ================================================================== */
+   ================================================================ */
 
 .scroll-pane {
     -fx-background-color: transparent;
@@ -516,46 +673,155 @@
 
 .scroll-bar {
     -fx-background-color: transparent;
+    -fx-pref-width: 8;
+    -fx-pref-height: 8;
 }
 
 .scroll-bar .track {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
+    -fx-background-radius: 4;
+}
+
+.scroll-bar .track-background {
+    -fx-background-color: transparent;
 }
 
 .scroll-bar .thumb {
-    -fx-background-color: #1A1B24;
+    -fx-background-color: #202030;
     -fx-background-radius: 4;
 }
 
 .scroll-bar .thumb:hover {
-    -fx-background-color: #6366F1;
+    -fx-background-color: #FF2D55;
 }
 
-/* ==================================================================
+.scroll-bar .thumb:pressed {
+    -fx-background-color: #D4193A;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-pref-height: 0;
+    -fx-pref-width: 0;
+    -fx-min-height: 0;
+    -fx-min-width: 0;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-padding: 0;
+    -fx-shape: "";
+}
+
+/* ================================================================
+   CHECK BOX
+   ================================================================ */
+
+.check-box {
+    -fx-text-fill: #A0A0B8;
+    -fx-font-size: 13px;
+}
+
+.check-box .box {
+    -fx-background-color: #111115;
+    -fx-border-color: #2A2A38;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 3;
+}
+
+.check-box:hover .box {
+    -fx-border-color: #FF2D55;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #FF2D55;
+    -fx-border-color: #FF2D55;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: #FFFFFF;
+}
+
+.check-box:focused .box {
+    -fx-effect: dropshadow(gaussian, rgba(255, 45, 85, 0.3), 6, 0, 0, 0);
+}
+
+/* ================================================================
+   RADIO BUTTON
+   ================================================================ */
+
+.radio-button {
+    -fx-text-fill: #A0A0B8;
+    -fx-font-size: 13px;
+}
+
+.radio-button .radio {
+    -fx-background-color: #111115;
+    -fx-border-color: #2A2A38;
+    -fx-border-width: 1;
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+    -fx-padding: 4;
+}
+
+.radio-button:hover .radio {
+    -fx-border-color: #FF2D55;
+}
+
+.radio-button:selected .radio {
+    -fx-border-color: #FF2D55;
+}
+
+.radio-button:selected .dot {
+    -fx-background-color: #FF2D55;
+    -fx-background-radius: 50%;
+}
+
+/* ================================================================
+   TOOLTIP
+   ================================================================ */
+
+.tooltip {
+    -fx-background-color: #17171E;
+    -fx-text-fill: #C0C0D8;
+    -fx-font-size: 12px;
+    -fx-border-color: #222230;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 6 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 12, 0, 0, 4);
+}
+
+/* ================================================================
    CATEGORIES
-   ================================================================== */
+   ================================================================ */
 
 .col-header {
-    -fx-padding: 16 20;
+    -fx-padding: 14 20;
 }
 
 .add-category-row {
-    -fx-padding: 14 20;
+    -fx-padding: 12 20;
 }
 
 .category-row {
     -fx-padding: 10 20;
-    -fx-border-color: transparent transparent #161820 transparent;
+    -fx-border-color: transparent transparent #16161C transparent;
     -fx-border-width: 0 0 1 0;
 }
 
 .category-row:hover {
-    -fx-background-color: #181920;
+    -fx-background-color: rgba(255,255,255,0.02);
 }
 
 .category-name {
-    -fx-text-fill: #B0B0CC;
+    -fx-text-fill: #A0A0B8;
     -fx-font-size: 13px;
 }
 
@@ -568,191 +834,283 @@
 
 .btn-icon-danger {
     -fx-background-color: transparent;
-    -fx-text-fill: #EF4444;
+    -fx-text-fill: #44445A;
     -fx-font-size: 12px;
     -fx-padding: 4 8;
     -fx-cursor: hand;
-    -fx-background-radius: 4;
+    -fx-background-radius: 6;
 }
 
 .btn-icon-danger:hover {
-    -fx-background-color: rgba(239, 68, 68, 0.10);
+    -fx-background-color: rgba(255, 45, 85, 0.10);
+    -fx-text-fill: #FF2D55;
 }
 
 .budget-bar {
     -fx-pref-width: 80;
-    -fx-pref-height: 5;
-    -fx-max-height: 5;
+    -fx-pref-height: 4;
+    -fx-max-height: 4;
 }
 
 .budget-bar-ok .bar {
-    -fx-background-color: linear-gradient(to right, #22C55E, #4ADE80);
+    -fx-background-color: linear-gradient(to right, #16A34A, #22C55E);
     -fx-background-radius: 4;
     -fx-background-insets: 0;
-    -fx-effect: dropshadow(gaussian, rgba(34, 197, 94, 0.35), 3, 0, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(34, 197, 94, 0.3), 3, 0, 0, 0);
+}
+
+.budget-bar-ok .track {
+    -fx-background-color: rgba(34, 197, 94, 0.12);
+    -fx-background-radius: 4;
 }
 
 .budget-bar-warn .bar {
-    -fx-background-color: linear-gradient(to right, #F59E0B, #FCD34D);
+    -fx-background-color: linear-gradient(to right, #D97706, #F59E0B);
     -fx-background-radius: 4;
     -fx-background-insets: 0;
-    -fx-effect: dropshadow(gaussian, rgba(245, 158, 11, 0.35), 3, 0, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(245, 158, 11, 0.3), 3, 0, 0, 0);
+}
+
+.budget-bar-warn .track {
+    -fx-background-color: rgba(245, 158, 11, 0.12);
+    -fx-background-radius: 4;
 }
 
 .budget-bar-over .bar {
-    -fx-background-color: linear-gradient(to right, #EF4444, #F87171);
+    -fx-background-color: linear-gradient(to right, #FF2D55, #FF6B8A);
     -fx-background-radius: 4;
     -fx-background-insets: 0;
-    -fx-effect: dropshadow(gaussian, rgba(239, 68, 68, 0.4), 3, 0, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(255, 45, 85, 0.38), 3, 0, 0, 0);
+}
+
+.budget-bar-over .track {
+    -fx-background-color: rgba(255, 45, 85, 0.12);
+    -fx-background-radius: 4;
 }
 
 .budget-spent {
-    -fx-text-fill: #4E4E6A;
+    -fx-text-fill: #44445A;
     -fx-font-size: 11px;
     -fx-min-width: 90;
 }
 
-/* ==================================================================
-   DATE PICKER
-   ================================================================== */
+/* ================================================================
+   DATE PICKER — Input
+   ================================================================ */
 
 .date-picker {
-    -fx-background-color: #111318;
-    -fx-border-color: #1A1B24;
+    -fx-background-color: #111115;
+    -fx-border-color: #1C1C24;
     -fx-border-width: 1;
     -fx-border-radius: 8;
     -fx-background-radius: 8;
 }
 
-.date-picker .text-field {
-    -fx-background-color: #111318;
-    -fx-text-fill: #B0B0CC;
-    -fx-border-color: #1A1B24;
-    -fx-border-width: 1;
-    -fx-border-radius: 8 0 0 8;
-    -fx-background-radius: 8 0 0 8;
-    -fx-padding: 9 14;
-    -fx-font-size: 13px;
-    -fx-prompt-text-fill: #2E2E45;
+.date-picker:hover {
+    -fx-border-color: #2E2E40;
 }
 
-.date-picker:focused > .text-field,
+.date-picker:focused {
+    -fx-border-color: #FF2D55;
+    -fx-effect: dropshadow(gaussian, rgba(255, 45, 85, 0.15), 8, 0, 0, 0);
+}
+
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: #A0A0B8;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-border-radius: 8 0 0 8;
+    -fx-background-radius: 8 0 0 8;
+    -fx-padding: 9 10 9 14;
+    -fx-font-size: 13px;
+    -fx-prompt-text-fill: #2A2A3C;
+    -fx-highlight-fill: rgba(255, 45, 85, 0.25);
+}
+
 .date-picker .text-field:focused {
-    -fx-border-color: #6366F1;
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+    -fx-effect: none;
 }
 
 .date-picker .arrow-button {
-    -fx-background-color: #181920;
+    -fx-background-color: transparent;
     -fx-border-radius: 0 8 8 0;
     -fx-background-radius: 0 8 8 0;
-    -fx-padding: 8 10;
+    -fx-padding: 0 12 0 8;
     -fx-cursor: hand;
 }
 
 .date-picker .arrow-button:hover {
-    -fx-background-color: #1E1F2A;
+    -fx-background-color: rgba(255, 45, 85, 0.08);
 }
 
 .date-picker .arrow-button .arrow {
-    -fx-background-color: #6868A0;
+    -fx-background-color: #44445A;
+    -fx-padding: 3.5;
 }
 
-/* --- Popup --- */
+.date-picker:hover .arrow-button .arrow {
+    -fx-background-color: #8080A0;
+}
+
+.date-picker:focused .arrow-button .arrow {
+    -fx-background-color: #FF2D55;
+}
+
+/* ================================================================
+   DATE PICKER — Calendar Popup
+   ================================================================ */
 
 .date-picker-popup {
-    -fx-background-color: #181920;
-    -fx-border-color: #22232E;
+    -fx-background-color: #13131A;
+    -fx-border-color: #222230;
     -fx-border-width: 1;
-    -fx-border-radius: 12;
-    -fx-background-radius: 12;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.7), 24, 0, 0, 8);
-    -fx-padding: 8;
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 28, 0, 0, 10);
+    -fx-padding: 0;
 }
 
+/* Шапка с месяцем/годом */
 .date-picker-popup > * > .month-year-pane {
-    -fx-background-color: #181920;
-    -fx-padding: 8 4 8 4;
+    -fx-background-color: #0F0F14;
+    -fx-padding: 14 12 10 12;
+    -fx-border-color: transparent transparent #1E1E28 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-radius: 14 14 0 0;
 }
 
 .date-picker-popup > * > .month-year-pane .month-year-label {
-    -fx-text-fill: #EEEEF2;
+    -fx-text-fill: #EBEBF0;
     -fx-font-size: 13px;
     -fx-font-weight: bold;
+}
+
+/* Кнопки «‹» и «›» */
+.date-picker-popup > * > .month-year-pane .spinner {
+    -fx-alignment: CENTER;
 }
 
 .date-picker-popup > * > .month-year-pane .spinner .button {
     -fx-background-color: transparent;
-    -fx-padding: 8;
+    -fx-padding: 6 10;
     -fx-cursor: hand;
     -fx-background-radius: 6;
+    -fx-border-color: transparent;
 }
 
 .date-picker-popup > * > .month-year-pane .spinner .button:hover {
-    -fx-background-color: rgba(99, 102, 241, 0.15);
+    -fx-background-color: rgba(255, 45, 85, 0.12);
+}
+
+.date-picker-popup > * > .month-year-pane .spinner .button:pressed {
+    -fx-background-color: rgba(255, 45, 85, 0.22);
 }
 
 .date-picker-popup > * > .month-year-pane .spinner .button .left-arrow {
-    -fx-background-color: #6366F1;
+    -fx-background-color: #FF2D55;
+    -fx-padding: 4;
 }
 
 .date-picker-popup > * > .month-year-pane .spinner .button .right-arrow {
-    -fx-background-color: #6366F1;
+    -fx-background-color: #FF2D55;
+    -fx-padding: 4;
 }
 
+/* Сетка календаря */
 .date-picker-popup > * > .calendar-grid {
-    -fx-background-color: #181920;
-    -fx-padding: 0 4 8 4;
+    -fx-background-color: #13131A;
+    -fx-padding: 8 12 12 12;
+    -fx-hgap: 2;
+    -fx-vgap: 2;
+    -fx-background-radius: 0 0 14 14;
 }
 
+/* Имена дней недели (Пн Вт Ср...) */
 .date-picker-popup .day-name-cell {
-    -fx-text-fill: #2E2E45;
-    -fx-font-size: 11px;
+    -fx-text-fill: #33334A;
+    -fx-font-size: 10px;
     -fx-font-weight: bold;
     -fx-alignment: CENTER;
-    -fx-padding: 6 2;
+    -fx-padding: 6 0;
+    -fx-pref-width: 34;
+    -fx-min-width: 34;
+    -fx-letter-spacing: 0.5;
 }
 
-.date-picker-popup .day-cell {
-    -fx-background-color: transparent;
-    -fx-text-fill: #B0B0CC;
-    -fx-font-size: 13px;
+/* Ячейка с номером недели */
+.date-picker-popup .week-number-cell {
+    -fx-text-fill: #252535;
+    -fx-font-size: 10px;
     -fx-alignment: CENTER;
     -fx-padding: 4;
+    -fx-pref-width: 24;
+    -fx-min-width: 24;
+}
+
+/* Обычный день */
+.date-picker-popup .day-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #A0A0B8;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER;
+    -fx-padding: 0;
+    -fx-pref-width: 34;
+    -fx-min-width: 34;
+    -fx-pref-height: 34;
+    -fx-min-height: 34;
     -fx-cursor: hand;
-    -fx-background-radius: 50%;
+    -fx-background-radius: 8;
 }
 
 .date-picker-popup .day-cell:hover {
-    -fx-background-color: rgba(99, 102, 241, 0.15);
-    -fx-background-radius: 50%;
+    -fx-background-color: rgba(255, 45, 85, 0.12);
+    -fx-text-fill: #EBEBF0;
+    -fx-background-radius: 8;
 }
 
 .date-picker-popup .day-cell.weekend {
-    -fx-text-fill: #EF4444;
+    -fx-text-fill: #FF4D6D;
 }
 
+.date-picker-popup .day-cell.weekend:hover {
+    -fx-text-fill: #FF2D55;
+}
+
+/* Сегодня */
 .date-picker-popup .day-cell.today {
-    -fx-border-color: #6366F1;
+    -fx-background-color: rgba(255, 45, 85, 0.12);
+    -fx-border-color: #FF2D55;
     -fx-border-width: 1;
-    -fx-border-radius: 50%;
-    -fx-background-radius: 50%;
-    -fx-text-fill: #818CF8;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-text-fill: #FF2D55;
+    -fx-font-weight: bold;
 }
 
+.date-picker-popup .day-cell.today:hover {
+    -fx-background-color: rgba(255, 45, 85, 0.22);
+}
+
+/* Выбранный день */
 .date-picker-popup .day-cell:selected,
 .date-picker-popup .day-cell.selected {
-    -fx-background-color: #6366F1;
+    -fx-background-color: #FF2D55;
     -fx-text-fill: #FFFFFF;
     -fx-font-weight: bold;
-    -fx-background-radius: 50%;
+    -fx-background-radius: 8;
     -fx-border-color: transparent;
     -fx-border-width: 0;
+    -fx-effect: dropshadow(gaussian, rgba(255, 45, 85, 0.45), 8, 0, 0, 0);
 }
 
 .date-picker-popup .day-cell:selected:hover,
 .date-picker-popup .day-cell.selected:hover {
-    -fx-background-color: #7577F5;
-    -fx-background-radius: 50%;
+    -fx-background-color: #FF4060;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(255, 45, 85, 0.55), 10, 0, 0, 0);
 }
 
 .date-picker-popup .day-cell.selected.weekend,
@@ -760,16 +1118,189 @@
     -fx-text-fill: #FFFFFF;
 }
 
+/* Дни другого месяца */
 .date-picker-popup .day-cell.previous-month,
 .date-picker-popup .day-cell.next-month {
-    -fx-text-fill: #22232E;
+    -fx-text-fill: #252535;
     -fx-cursor: default;
 }
 
+.date-picker-popup .day-cell.previous-month:hover,
+.date-picker-popup .day-cell.next-month:hover {
+    -fx-background-color: transparent;
+    -fx-text-fill: #252535;
+}
+
+/* Сегодня + выбран */
 .date-picker-popup .day-cell.today.selected,
 .date-picker-popup .day-cell.today:selected {
-    -fx-background-color: #6366F1;
+    -fx-background-color: #FF2D55;
     -fx-text-fill: #FFFFFF;
     -fx-border-color: transparent;
     -fx-border-width: 0;
+    -fx-effect: dropshadow(gaussian, rgba(255, 45, 85, 0.45), 8, 0, 0, 0);
+}
+
+/* ================================================================
+   ALERT DIALOG (Confirmation / Info)
+   ================================================================ */
+
+.alert .dialog-pane {
+    -fx-background-color: #111115;
+    -fx-border-color: #1C1C24;
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+}
+
+.alert .dialog-pane .header-panel {
+    -fx-background-color: #0D0D10;
+    -fx-background-radius: 14 14 0 0;
+    -fx-border-color: transparent transparent #1C1C24 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.alert .dialog-pane .header-panel .label {
+    -fx-text-fill: #EBEBF0;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Иконка предупреждения */
+.alert .dialog-pane .graphic-container {
+    -fx-padding: 0 14 0 0;
+}
+
+/* ================================================================
+   SPINNER (number stepper) — для будущих форм
+   ================================================================ */
+
+.spinner {
+    -fx-background-color: #111115;
+    -fx-border-color: #1C1C24;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.spinner:focused {
+    -fx-border-color: #FF2D55;
+}
+
+.spinner .text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: #EBEBF0;
+    -fx-border-color: transparent;
+    -fx-padding: 6 10;
+}
+
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 0 8;
+}
+
+.spinner .increment-arrow-button:hover,
+.spinner .decrement-arrow-button:hover {
+    -fx-background-color: rgba(255, 45, 85, 0.10);
+}
+
+.spinner .increment-arrow-button .increment-arrow,
+.spinner .decrement-arrow-button .decrement-arrow {
+    -fx-background-color: #44445A;
+    -fx-padding: 3;
+}
+
+.spinner .increment-arrow-button:hover .increment-arrow,
+.spinner .decrement-arrow-button:hover .decrement-arrow {
+    -fx-background-color: #FF2D55;
+}
+
+/* ================================================================
+   LIST VIEW (общий)
+   ================================================================ */
+
+.list-view {
+    -fx-background-color: #111115;
+    -fx-border-color: #1C1C24;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.list-view:focused {
+    -fx-border-color: #1C1C24;
+}
+
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #A0A0B8;
+    -fx-padding: 8 14;
+    -fx-border-color: transparent transparent #16161C transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.list-cell:hover {
+    -fx-background-color: rgba(255,255,255,0.025);
+    -fx-text-fill: #EBEBF0;
+}
+
+.list-cell:selected {
+    -fx-background-color: rgba(255, 45, 85, 0.10);
+    -fx-text-fill: #FF2D55;
+}
+
+/* ================================================================
+   TAB PANE (для будущей аналитики)
+   ================================================================ */
+
+.tab-pane {
+    -fx-background-color: transparent;
+    -fx-tab-min-height: 36px;
+}
+
+.tab-pane .tab-header-area {
+    -fx-padding: 0 0 0 0;
+    -fx-background-color: transparent;
+}
+
+.tab-pane .tab-header-background {
+    -fx-background-color: #0A0A0D;
+    -fx-border-color: transparent transparent #1A1A22 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.tab-pane .tab {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-padding: 8 18;
+    -fx-cursor: hand;
+}
+
+.tab-pane .tab .tab-label {
+    -fx-text-fill: #44445A;
+    -fx-font-size: 13px;
+}
+
+.tab-pane .tab:hover .tab-label {
+    -fx-text-fill: #9090A8;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #FF2D55 transparent;
+    -fx-border-width: 0 0 2 0;
+}
+
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #FF2D55;
+    -fx-font-weight: bold;
+}
+
+.tab-pane .tab-content-area {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
 }

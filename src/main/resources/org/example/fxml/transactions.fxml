@@ -20,19 +20,19 @@
     <top>
         <VBox>
             <!-- Заголовок -->
-            <HBox alignment="CENTER_LEFT" style="-fx-padding: 28 32 16 32;">
+            <HBox alignment="CENTER_LEFT" style="-fx-padding: 26 32 14 32;">
                 <Label text="Транзакции" styleClass="page-title"/>
                 <Pane HBox.hgrow="ALWAYS"/>
                 <Button text="+ Добавить" styleClass="btn-primary" onAction="#openAddDialog"/>
             </HBox>
 
             <!-- Фильтры -->
-            <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 0 32 16 32;">
-                <ComboBox fx:id="filterType" promptText="Все типы" prefWidth="130"/>
-                <ComboBox fx:id="filterCategory" promptText="Все категории" prefWidth="175"/>
-                <DatePicker fx:id="filterDateFrom" promptText="Дата с" prefWidth="135"/>
-                <DatePicker fx:id="filterDateTo" promptText="Дата по" prefWidth="135"/>
-                <TextField fx:id="filterSearch" promptText="Поиск по комментарию" HBox.hgrow="ALWAYS"/>
+            <HBox spacing="8" alignment="CENTER_LEFT" style="-fx-padding: 0 32 14 32;">
+                <ComboBox fx:id="filterType"     promptText="Все типы"      prefWidth="128"/>
+                <ComboBox fx:id="filterCategory" promptText="Все категории" prefWidth="170"/>
+                <DatePicker fx:id="filterDateFrom" promptText="Дата с"  prefWidth="132"/>
+                <DatePicker fx:id="filterDateTo"   promptText="Дата по" prefWidth="132"/>
+                <TextField fx:id="filterSearch" promptText="Поиск..." HBox.hgrow="ALWAYS"/>
                 <Button text="Сбросить" styleClass="btn-secondary" onAction="#resetFilters"/>
             </HBox>
 
@@ -43,14 +43,14 @@
     <center>
         <TableView fx:id="tableView" style="-fx-padding: 0 32 0 32;">
             <placeholder>
-                <Label text="Транзакций нет. Нажмите «+ Добавить»." styleClass="placeholder-label"/>
+                <Label text="Нет транзакций. Нажмите «+ Добавить»." styleClass="placeholder-label"/>
             </placeholder>
             <columns>
-                <TableColumn fx:id="colDate"     text="Дата"          prefWidth="115"/>
-                <TableColumn fx:id="colType"     text="Тип"           prefWidth="100"/>
-                <TableColumn fx:id="colCategory" text="Категория"     prefWidth="160"/>
-                <TableColumn fx:id="colAmount"   text="Сумма"         prefWidth="140"/>
-                <TableColumn fx:id="colComment"  text="Комментарий"/>
+                <TableColumn fx:id="colDate"     text="ДАТА"          prefWidth="115"/>
+                <TableColumn fx:id="colType"     text="ТИП"           prefWidth="100"/>
+                <TableColumn fx:id="colCategory" text="КАТЕГОРИЯ"     prefWidth="160"/>
+                <TableColumn fx:id="colAmount"   text="СУММА"         prefWidth="140"/>
+                <TableColumn fx:id="colComment"  text="КОММЕНТАРИЙ"/>
                 <TableColumn fx:id="colActions"  text=""
                              prefWidth="60" minWidth="60" maxWidth="60"
                              resizable="false" sortable="false"/>
@@ -59,11 +59,13 @@
     </center>
 
     <bottom>
-        <HBox alignment="CENTER" spacing="14"
-              style="-fx-padding: 12 32; -fx-background-color: #12121E;">
-            <Button fx:id="btnPrev" text="◀ Назад"   styleClass="btn-secondary" onAction="#prevPage"/>
-            <Label  fx:id="pageLabel"                styleClass="section-title"/>
-            <Button fx:id="btnNext" text="Вперёд ▶" styleClass="btn-secondary" onAction="#nextPage"/>
+        <HBox alignment="CENTER" spacing="12"
+              style="-fx-padding: 10 32; -fx-background-color: #0A0A0D;
+                     -fx-border-color: #1A1A22 transparent transparent transparent;
+                     -fx-border-width: 1 0 0 0;">
+            <Button fx:id="btnPrev" text="← Назад"  styleClass="btn-secondary" onAction="#prevPage"/>
+            <Label  fx:id="pageLabel"               styleClass="section-title"/>
+            <Button fx:id="btnNext" text="Вперёд →" styleClass="btn-secondary" onAction="#nextPage"/>
         </HBox>
     </bottom>
 

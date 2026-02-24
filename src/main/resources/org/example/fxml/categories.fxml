@@ -2,6 +2,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
@@ -14,19 +15,22 @@
             styleClass="root-pane">
 
     <top>
-        <HBox alignment="CENTER_LEFT" style="-fx-padding: 28 32 20 32;">
-            <Label text="Категории" styleClass="page-title"/>
-        </HBox>
+        <VBox>
+            <HBox alignment="CENTER_LEFT" style="-fx-padding: 26 32 18 32;">
+                <Label text="Категории" styleClass="page-title"/>
+            </HBox>
+            <Separator/>
+        </VBox>
     </top>
 
     <center>
         <ScrollPane fitToWidth="true" styleClass="scroll-pane">
-            <HBox spacing="24" style="-fx-padding: 0 32 32 32;">
+            <HBox spacing="20" style="-fx-padding: 24 32 32 32;">
 
                 <!-- Доходы -->
                 <VBox styleClass="card" HBox.hgrow="ALWAYS" minWidth="0">
-                    <HBox styleClass="col-header" alignment="CENTER_LEFT">
-                        <Label text="▲  Доходы" styleClass="section-title income-label"/>
+                    <HBox styleClass="col-header" alignment="CENTER_LEFT" spacing="8">
+                        <Label text="↑  ДОХОДЫ" styleClass="section-title income-label"/>
                     </HBox>
                     <Separator/>
                     <VBox fx:id="incomeList"/>
@@ -42,8 +46,8 @@
 
                 <!-- Расходы -->
                 <VBox styleClass="card" HBox.hgrow="ALWAYS" minWidth="0">
-                    <HBox styleClass="col-header" alignment="CENTER_LEFT">
-                        <Label text="▼  Расходы" styleClass="section-title expense-label"/>
+                    <HBox styleClass="col-header" alignment="CENTER_LEFT" spacing="8">
+                        <Label text="↓  РАСХОДЫ" styleClass="section-title expense-label"/>
                     </HBox>
                     <Separator/>
                     <VBox fx:id="expenseList"/>
