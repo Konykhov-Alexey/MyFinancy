@@ -1304,3 +1304,556 @@
     -fx-border-color: transparent;
     -fx-padding: 0;
 }
+
+/* ================================================================
+   GOAL CARDS (Phase 4)
+   ================================================================ */
+
+.goal-card {
+    -fx-background-color: #111115;
+    -fx-background-radius: 14;
+    -fx-border-color: #1C1C24;
+    -fx-border-width: 1;
+    -fx-border-radius: 14;
+    -fx-padding: 18;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 10, 0, 0, 3);
+}
+
+.goal-card:hover {
+    -fx-border-color: #2A2A38;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.55), 14, 0, 0, 5);
+}
+
+.goal-card-title {
+    -fx-text-fill: #EBEBF0;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.goal-card-desc {
+    -fx-text-fill: #44445A;
+    -fx-font-size: 12px;
+}
+
+/* Статус-бейдж */
+.goal-status-badge {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 3 8;
+    -fx-background-radius: 20;
+    -fx-letter-spacing: 0.5;
+}
+
+.goal-badge-active {
+    -fx-background-color: rgba(255, 45, 85, 0.12);
+    -fx-text-fill: #FF2D55;
+    -fx-border-color: rgba(255, 45, 85, 0.25);
+    -fx-border-width: 1;
+    -fx-border-radius: 20;
+}
+
+.goal-badge-complete {
+    -fx-background-color: rgba(34, 197, 94, 0.12);
+    -fx-text-fill: #22C55E;
+    -fx-border-color: rgba(34, 197, 94, 0.25);
+    -fx-border-width: 1;
+    -fx-border-radius: 20;
+}
+
+.goal-badge-cancelled {
+    -fx-background-color: rgba(80, 80, 100, 0.12);
+    -fx-text-fill: #44445A;
+    -fx-border-color: rgba(80, 80, 100, 0.2);
+    -fx-border-width: 1;
+    -fx-border-radius: 20;
+}
+
+/* Разделитель внутри карточки */
+.goal-separator .line {
+    -fx-border-color: #1C1C24;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* Progress bar карточки — наследует .progress-bar, добавляем высоту */
+.goal-progress-bar .track {
+    -fx-background-color: #1C1C24;
+    -fx-background-radius: 6;
+    -fx-pref-height: 7;
+}
+
+.goal-progress-bar .bar {
+    -fx-background-color: linear-gradient(to right, #FF2D55, #FF6B8A);
+    -fx-background-radius: 6;
+    -fx-background-insets: 0;
+    -fx-pref-height: 7;
+    -fx-effect: dropshadow(gaussian, rgba(255, 45, 85, 0.45), 5, 0, 0, 0);
+}
+
+.goal-progress-high .bar {
+    -fx-background-color: linear-gradient(to right, #FF6B00, #FFB347);
+    -fx-effect: dropshadow(gaussian, rgba(255, 107, 0, 0.4), 5, 0, 0, 0);
+}
+
+.goal-progress-complete .bar {
+    -fx-background-color: linear-gradient(to right, #16A34A, #22C55E);
+    -fx-effect: dropshadow(gaussian, rgba(34, 197, 94, 0.45), 5, 0, 0, 0);
+}
+
+/* Суммы */
+.goal-amount-current {
+    -fx-text-fill: #EBEBF0;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.goal-amount-target {
+    -fx-text-fill: #44445A;
+    -fx-font-size: 13px;
+}
+
+.goal-percent {
+    -fx-text-fill: #FF2D55;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+/* Дедлайн */
+.goal-deadline {
+    -fx-text-fill: #44445A;
+    -fx-font-size: 11px;
+}
+
+.goal-deadline-overdue {
+    -fx-text-fill: #FF2D55;
+    -fx-font-weight: bold;
+}
+
+/* Диалог — строка инфо */
+.goal-dialog-info {
+    -fx-text-fill: #606080;
+    -fx-font-size: 12px;
+    -fx-padding: 0 0 6 0;
+}
+
+/* Empty state */
+.goal-empty-icon {
+    -fx-text-fill: #252535;
+    -fx-font-size: 48px;
+}
+
+.goal-empty-title {
+    -fx-text-fill: #44445A;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.goal-empty-hint {
+    -fx-text-fill: #33334A;
+    -fx-font-size: 13px;
+    -fx-max-width: 320;
+}
+
+/* ================================================================
+   DASHBOARD — Phase 5
+   ================================================================ */
+
+/* ── Metric Cards ────────────────────────────────────────────── */
+
+.dash-metric-card {
+    -fx-background-color: #111115;
+    -fx-background-radius: 12;
+    -fx-border-color: #1C1C24;
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+    -fx-padding: 16 20;
+    -fx-spacing: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 8, 0, 0, 2);
+}
+
+.dash-metric-label {
+    -fx-text-fill: #33334A;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 0.8;
+}
+
+.dash-metric-value {
+    -fx-text-fill: #EBEBF0;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.dash-positive { -fx-text-fill: #22C55E; }
+.dash-negative { -fx-text-fill: #FF2D55; }
+
+/* ── Empty state ─────────────────────────────────────────────── */
+
+.dash-empty {
+    -fx-text-fill: #252535;
+    -fx-font-size: 12px;
+    -fx-alignment: CENTER;
+    -fx-padding: 20 0;
+}
+
+/* ── Top Categories list ─────────────────────────────────────── */
+
+.dash-cat-row {
+    -fx-padding: 4 0;
+    -fx-border-color: transparent transparent #16161C transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.dash-cat-name {
+    -fx-text-fill: #A0A0B8;
+    -fx-font-size: 13px;
+}
+
+.dash-cat-bar .track {
+    -fx-background-color: #1C1C24;
+    -fx-background-radius: 4;
+    -fx-pref-height: 4;
+}
+
+.dash-cat-bar .bar {
+    -fx-background-color: linear-gradient(to right, #FF2D55, #FF6B8A);
+    -fx-background-radius: 4;
+    -fx-background-insets: 0;
+    -fx-pref-height: 4;
+}
+
+.dash-cat-amount {
+    -fx-text-fill: #FF2D55;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-min-width: 90;
+    -fx-alignment: CENTER_RIGHT;
+}
+
+/* ── Recent Transactions list ────────────────────────────────── */
+
+.dash-tx-row {
+    -fx-padding: 8 0;
+    -fx-border-color: transparent transparent #16161C transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.dash-tx-cat {
+    -fx-text-fill: #A0A0B8;
+    -fx-font-size: 13px;
+}
+
+.dash-tx-date {
+    -fx-text-fill: #33334A;
+    -fx-font-size: 11px;
+}
+
+.dash-tx-income {
+    -fx-text-fill: #22C55E;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-min-width: 110;
+    -fx-alignment: CENTER_RIGHT;
+}
+
+.dash-tx-expense {
+    -fx-text-fill: #FF2D55;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-min-width: 110;
+    -fx-alignment: CENTER_RIGHT;
+}
+
+/* ── Mini Goal Card ──────────────────────────────────────────── */
+
+.dash-goal-card {
+    -fx-background-color: #17171E;
+    -fx-background-radius: 10;
+    -fx-border-color: #222230;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-padding: 14 16;
+}
+
+.dash-goal-name {
+    -fx-text-fill: #EBEBF0;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.dash-goal-current {
+    -fx-text-fill: #A0A0B8;
+    -fx-font-size: 12px;
+}
+
+.dash-goal-target {
+    -fx-text-fill: #33334A;
+    -fx-font-size: 11px;
+}
+
+/* ================================================================
+   CHARTS — LineChart & PieChart
+   ================================================================ */
+
+/* ── Общий контейнер ─────────────────────────────────────────── */
+
+.dash-line-chart,
+.dash-pie-chart {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.dash-line-chart .chart,
+.dash-pie-chart .chart {
+    -fx-background-color: transparent;
+}
+
+.dash-line-chart .chart-content,
+.dash-pie-chart .chart-content {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+/* Plot area */
+.dash-line-chart .chart-plot-background {
+    -fx-background-color: rgba(255,255,255,0.015);
+    -fx-background-radius: 6;
+}
+
+.dash-pie-chart .chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+/* Grid lines */
+.dash-line-chart .chart-vertical-grid-lines {
+    -fx-stroke: transparent;
+}
+
+.dash-line-chart .chart-horizontal-grid-lines {
+    -fx-stroke: #1A1A22;
+    -fx-stroke-dash-array: 3 5;
+    -fx-stroke-width: 1;
+}
+
+.dash-line-chart .chart-alternative-row-fill {
+    -fx-fill: transparent;
+    -fx-stroke: transparent;
+}
+
+.dash-line-chart .chart-alternative-column-fill {
+    -fx-fill: transparent;
+    -fx-stroke: transparent;
+}
+
+/* ── Оси ─────────────────────────────────────────────────────── */
+
+.dash-line-chart .axis {
+    -fx-tick-label-fill: #33334A;
+    -fx-font-size: 10px;
+}
+
+.dash-line-chart .axis-label {
+    -fx-text-fill: #33334A;
+    -fx-font-size: 10px;
+}
+
+.dash-line-chart .axis-tick-mark,
+.dash-line-chart .axis-minor-tick-mark {
+    -fx-stroke: #1C1C24;
+}
+
+.dash-line-chart .category-axis {
+    -fx-border-color: transparent;
+}
+
+.dash-line-chart .number-axis {
+    -fx-border-color: transparent;
+}
+
+/* ── Легенда ─────────────────────────────────────────────────── */
+
+.dash-line-chart .chart-legend,
+.dash-pie-chart .chart-legend {
+    -fx-background-color: transparent;
+    -fx-padding: 8 0 0 0;
+}
+
+.dash-line-chart .chart-legend-item,
+.dash-pie-chart .chart-legend-item {
+    -fx-text-fill: #606080;
+    -fx-font-size: 11px;
+}
+
+.dash-line-chart .chart-legend-item-symbol {
+    -fx-padding: 4;
+    -fx-background-radius: 3;
+}
+
+/* ── LineChart серии ─────────────────────────────────────────── */
+
+/* Серия 0 — Доходы (зелёный) */
+.dash-line-chart .default-color0.chart-series-line {
+    -fx-stroke: #22C55E;
+    -fx-stroke-width: 2;
+}
+
+.dash-line-chart .default-color0.chart-line-symbol {
+    -fx-background-color: #22C55E, #111115;
+    -fx-background-radius: 4;
+    -fx-padding: 4;
+}
+
+.dash-line-chart .default-color0.chart-legend-item-symbol {
+    -fx-background-color: #22C55E;
+}
+
+/* Серия 1 — Расходы (розовый) */
+.dash-line-chart .default-color1.chart-series-line {
+    -fx-stroke: #FF2D55;
+    -fx-stroke-width: 2;
+}
+
+.dash-line-chart .default-color1.chart-line-symbol {
+    -fx-background-color: #FF2D55, #111115;
+    -fx-background-radius: 4;
+    -fx-padding: 4;
+}
+
+.dash-line-chart .default-color1.chart-legend-item-symbol {
+    -fx-background-color: #FF2D55;
+}
+
+/* ── PieChart срезы ──────────────────────────────────────────── */
+
+.dash-pie-chart .default-color0.chart-pie { -fx-pie-color: #FF2D55; }
+.dash-pie-chart .default-color1.chart-pie { -fx-pie-color: #FF9500; }
+.dash-pie-chart .default-color2.chart-pie { -fx-pie-color: #FFCC02; }
+.dash-pie-chart .default-color3.chart-pie { -fx-pie-color: #34C759; }
+.dash-pie-chart .default-color4.chart-pie { -fx-pie-color: #007AFF; }
+.dash-pie-chart .default-color5.chart-pie { -fx-pie-color: #5856D6; }
+.dash-pie-chart .default-color6.chart-pie { -fx-pie-color: #AF52DE; }
+.dash-pie-chart .default-color7.chart-pie { -fx-pie-color: #FF6B00; }
+
+.dash-pie-chart .default-color0.chart-pie-legend-symbol { -fx-background-color: #FF2D55; }
+.dash-pie-chart .default-color1.chart-pie-legend-symbol { -fx-background-color: #FF9500; }
+.dash-pie-chart .default-color2.chart-pie-legend-symbol { -fx-background-color: #FFCC02; }
+.dash-pie-chart .default-color3.chart-pie-legend-symbol { -fx-background-color: #34C759; }
+.dash-pie-chart .default-color4.chart-pie-legend-symbol { -fx-background-color: #007AFF; }
+.dash-pie-chart .default-color5.chart-pie-legend-symbol { -fx-background-color: #5856D6; }
+.dash-pie-chart .default-color6.chart-pie-legend-symbol { -fx-background-color: #AF52DE; }
+.dash-pie-chart .default-color7.chart-pie-legend-symbol { -fx-background-color: #FF6B00; }
+
+/* ================================================================
+   ANALYTICS — Phase 6
+   ================================================================ */
+
+/* ── Bar Chart ───────────────────────────────────────────────── */
+
+.analytics-bar-chart {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.analytics-bar-chart .chart {
+    -fx-background-color: transparent;
+}
+
+.analytics-bar-chart .chart-content {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.analytics-bar-chart .chart-plot-background {
+    -fx-background-color: rgba(255,255,255,0.015);
+    -fx-background-radius: 6;
+}
+
+.analytics-bar-chart .chart-vertical-grid-lines {
+    -fx-stroke: transparent;
+}
+
+.analytics-bar-chart .chart-horizontal-grid-lines {
+    -fx-stroke: #1A1A22;
+    -fx-stroke-dash-array: 3 5;
+    -fx-stroke-width: 1;
+}
+
+.analytics-bar-chart .chart-alternative-row-fill {
+    -fx-fill: transparent;
+    -fx-stroke: transparent;
+}
+
+.analytics-bar-chart .chart-alternative-column-fill {
+    -fx-fill: transparent;
+    -fx-stroke: transparent;
+}
+
+.analytics-bar-chart .axis {
+    -fx-tick-label-fill: #33334A;
+    -fx-font-size: 10px;
+}
+
+.analytics-bar-chart .axis-label {
+    -fx-text-fill: #33334A;
+    -fx-font-size: 10px;
+}
+
+.analytics-bar-chart .axis-tick-mark,
+.analytics-bar-chart .axis-minor-tick-mark {
+    -fx-stroke: #1C1C24;
+}
+
+.analytics-bar-chart .chart-legend {
+    -fx-background-color: transparent;
+    -fx-padding: 8 0 0 0;
+}
+
+.analytics-bar-chart .chart-legend-item {
+    -fx-text-fill: #606080;
+    -fx-font-size: 11px;
+}
+
+/* Series 0 — Доходы (зелёный) */
+.analytics-bar-chart .default-color0.chart-bar {
+    -fx-bar-fill: #22C55E;
+    -fx-background-radius: 4 4 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(34, 197, 94, 0.28), 4, 0, 0, 0);
+}
+
+.analytics-bar-chart .default-color0.chart-legend-item-symbol {
+    -fx-background-color: #22C55E;
+}
+
+/* Series 1 — Расходы (розовый) */
+.analytics-bar-chart .default-color1.chart-bar {
+    -fx-bar-fill: #FF2D55;
+    -fx-background-radius: 4 4 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(255, 45, 85, 0.28), 4, 0, 0, 0);
+}
+
+.analytics-bar-chart .default-color1.chart-legend-item-symbol {
+    -fx-background-color: #FF2D55;
+}
+
+/* ── Top Category Label ───────────────────────────────────────── */
+
+.analytics-top-cat {
+    -fx-text-fill: #EBEBF0;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+/* ── Goal Row ─────────────────────────────────────────────────── */
+
+.analytics-goal-row {
+    -fx-padding: 6 0;
+    -fx-border-color: transparent transparent #16161C transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* ── Category % label ─────────────────────────────────────────── */
+
+.dash-cat-pct {
+    -fx-text-fill: #44445A;
+    -fx-font-size: 11px;
+    -fx-alignment: CENTER_RIGHT;
+}

@@ -1,9 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 
-<!-- Phase 6: будет заменён на экран аналитики -->
-<StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-           style="-fx-background-color: #0D0D0F;">
-    <Label text="Аналитика — реализация в Phase 6" styleClass="placeholder-label"/>
-</StackPane>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.controller.AnalyticsController"
+            styleClass="root-pane">
+
+    <top>
+        <VBox>
+            <HBox alignment="CENTER_LEFT" spacing="12" style="-fx-padding: 26 32 14 32;">
+                <VBox spacing="3">
+                    <Label text="Аналитика" styleClass="page-title"/>
+                </VBox>
+                <Pane HBox.hgrow="ALWAYS"/>
+                <ComboBox fx:id="periodCombo" prefWidth="145"/>
+                <DatePicker fx:id="fromPicker" promptText="От" prefWidth="140"/>
+                <Label text="—" styleClass="page-subtitle"/>
+                <DatePicker fx:id="toPicker" promptText="До" prefWidth="140"/>
+                <Button text="Применить" styleClass="btn-secondary" onAction="#refresh"/>
+            </HBox>
+            <Separator/>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+            <VBox spacing="20" style="-fx-padding: 24 32 32 32;">
+
+                <!-- ── Строка 1: Bar Chart ── -->
+                <VBox styleClass="card" spacing="12">
+                    <Label text="ДОХОДЫ И РАСХОДЫ ПО МЕСЯЦАМ" styleClass="section-title"/>
+                    <VBox fx:id="barChartBox" prefHeight="280" VBox.vgrow="ALWAYS"/>
+                </VBox>
+
+                <!-- ── Строка 2: Средние показатели + Топ категория ── -->
+                <HBox spacing="16" alignment="TOP_LEFT">
+                    <VBox styleClass="card" HBox.hgrow="ALWAYS" minWidth="0" spacing="12">
+                        <Label text="СРЕДНИЕ РАСХОДЫ ЗА ПЕРИОД" styleClass="section-title"/>
+                        <HBox spacing="12">
+                            <VBox styleClass="dash-metric-card" HBox.hgrow="ALWAYS" minWidth="0">
+                                <Label text="В ДЕНЬ" styleClass="dash-metric-label"/>
+                                <Label fx:id="avgDayLabel" text="—" styleClass="dash-metric-value"/>
+                            </VBox>
+                            <VBox styleClass="dash-metric-card" HBox.hgrow="ALWAYS" minWidth="0">
+                                <Label text="В НЕДЕЛЮ" styleClass="dash-metric-label"/>
+                                <Label fx:id="avgWeekLabel" text="—" styleClass="dash-metric-value"/>
+                            </VBox>
+                            <VBox styleClass="dash-metric-card" HBox.hgrow="ALWAYS" minWidth="0">
+                                <Label text="В МЕСЯЦ" styleClass="dash-metric-label"/>
+                                <Label fx:id="avgMonthLabel" text="—" styleClass="dash-metric-value"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                    <VBox styleClass="card" prefWidth="260" minWidth="260" spacing="12">
+                        <Label text="ТОП КАТЕГОРИЯ РАСХОДОВ" styleClass="section-title"/>
+                        <Label fx:id="topCatLabel" text="—" styleClass="analytics-top-cat" wrapText="true"/>
+                    </VBox>
+                </HBox>
+
+                <!-- ── Строка 3: Топ категорий расходов ── -->
+                <VBox styleClass="card" spacing="12">
+                    <Label text="РАСХОДЫ ПО КАТЕГОРИЯМ ЗА ПЕРИОД" styleClass="section-title"/>
+                    <VBox fx:id="categoriesBox" spacing="6"/>
+                </VBox>
+
+                <!-- ── Строка 4: Прогресс целей ── -->
+                <VBox fx:id="goalSection" styleClass="card" spacing="12">
+                    <Label text="ПРОГРЕСС ЦЕЛЕЙ НАКОПЛЕНИЯ" styleClass="section-title"/>
+                    <VBox fx:id="goalBox" spacing="10"/>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

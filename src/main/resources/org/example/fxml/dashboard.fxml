@@ -1,8 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 
-<!-- Phase 5: будет заменён на полноценный дашборд -->
-<StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
-    <Label text="Главная — реализация в Phase 5" styleClass="placeholder-label"/>
-</StackPane>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.controller.DashboardController"
+            styleClass="root-pane">
+
+    <top>
+        <VBox>
+            <HBox alignment="CENTER_LEFT" spacing="12" style="-fx-padding: 26 32 14 32;">
+                <VBox spacing="3">
+                    <Label text="Главная" styleClass="page-title"/>
+                    <Label fx:id="monthLabel" styleClass="page-subtitle"/>
+                </VBox>
+                <Pane HBox.hgrow="ALWAYS"/>
+                <Button text="↻  Обновить" styleClass="btn-secondary" onAction="#refresh"/>
+            </HBox>
+            <Separator/>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+            <VBox spacing="20" style="-fx-padding: 24 32 32 32;">
+
+                <!-- ── Строка 1: Метрики ── -->
+                <HBox spacing="16">
+                    <VBox styleClass="dash-metric-card" HBox.hgrow="ALWAYS" minWidth="0">
+                        <Label text="БАЛАНС МЕСЯЦА" styleClass="dash-metric-label"/>
+                        <Label fx:id="balanceValue" text="—" styleClass="dash-metric-value"/>
+                    </VBox>
+                    <VBox styleClass="dash-metric-card" HBox.hgrow="ALWAYS" minWidth="0">
+                        <Label text="ДОХОДЫ" styleClass="dash-metric-label"/>
+                        <Label fx:id="incomeValue" text="—" styleClass="dash-metric-value"/>
+                    </VBox>
+                    <VBox styleClass="dash-metric-card" HBox.hgrow="ALWAYS" minWidth="0">
+                        <Label text="РАСХОДЫ" styleClass="dash-metric-label"/>
+                        <Label fx:id="expenseValue" text="—" styleClass="dash-metric-value"/>
+                    </VBox>
+                    <VBox styleClass="dash-metric-card" HBox.hgrow="ALWAYS" minWidth="0">
+                        <Label text="АКТИВНЫХ ЦЕЛЕЙ" styleClass="dash-metric-label"/>
+                        <Label fx:id="goalsCountValue" text="—" styleClass="dash-metric-value"/>
+                    </VBox>
+                </HBox>
+
+                <!-- ── Строка 2: Графики ── -->
+                <HBox spacing="16" alignment="TOP_LEFT">
+                    <VBox styleClass="card" HBox.hgrow="ALWAYS" minWidth="0" spacing="12">
+                        <Label text="ДИНАМИКА МЕСЯЦА" styleClass="section-title"/>
+                        <VBox fx:id="lineChartBox" prefHeight="240" VBox.vgrow="ALWAYS"/>
+                    </VBox>
+                    <VBox styleClass="card" prefWidth="300" minWidth="300" spacing="12">
+                        <Label text="РАСХОДЫ ПО КАТЕГОРИЯМ" styleClass="section-title"/>
+                        <VBox fx:id="pieChartBox" prefHeight="240"/>
+                    </VBox>
+                </HBox>
+
+                <!-- ── Строка 3: Списки ── -->
+                <HBox spacing="16" alignment="TOP_LEFT">
+                    <VBox styleClass="card" HBox.hgrow="ALWAYS" minWidth="0" spacing="10">
+                        <Label text="ТОП КАТЕГОРИЙ РАСХОДОВ" styleClass="section-title"/>
+                        <VBox fx:id="topCategoriesBox" spacing="6"/>
+                    </VBox>
+                    <VBox styleClass="card" HBox.hgrow="ALWAYS" minWidth="0" spacing="10">
+                        <Label text="ПОСЛЕДНИЕ ОПЕРАЦИИ" styleClass="section-title"/>
+                        <VBox fx:id="recentTxBox" spacing="0"/>
+                    </VBox>
+                </HBox>
+
+                <!-- ── Строка 4: Активные цели ── -->
+                <VBox fx:id="goalsSection" styleClass="card" spacing="12">
+                    <Label text="АКТИВНЫЕ ЦЕЛИ" styleClass="section-title"/>
+                    <HBox fx:id="goalsRow" spacing="16"/>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>
