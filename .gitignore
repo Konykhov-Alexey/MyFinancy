@@ -42,3 +42,8 @@ build/
 CLAUDE.md
 ROADMAP.md
 promts/
+.claude/
+
+### Runtime data ###
+data/
+logs/

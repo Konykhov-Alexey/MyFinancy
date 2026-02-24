@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Label?>
+
+<!-- Phase 4: будет заменён на экран целей накопления -->
+<StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+           style="-fx-background-color: #12121E;">
+    <Label text="Цели накопления — реализация в Phase 4" styleClass="placeholder-label"/>
+</StackPane>

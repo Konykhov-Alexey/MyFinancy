@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Label?>
+
+<!-- Phase 2: будет заменён на экран категорий -->
+<StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+           style="-fx-background-color: #12121E;">
+    <Label text="Категории — реализация в Phase 2" styleClass="placeholder-label"/>
+</StackPane>

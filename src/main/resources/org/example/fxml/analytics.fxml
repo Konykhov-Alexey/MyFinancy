@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Label?>
+
+<!-- Phase 6: будет заменён на экран аналитики -->
+<StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+           style="-fx-background-color: #12121E;">
+    <Label text="Аналитика — реализация в Phase 6" styleClass="placeholder-label"/>
+</StackPane>
