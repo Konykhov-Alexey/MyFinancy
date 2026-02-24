@@ -323,6 +323,93 @@
     -fx-text-fill: #94A3B8;
 }
 
+/* ===== Categories ===== */
+
+.col-header {
+    -fx-padding: 16 20;
+}
+
+.add-category-row {
+    -fx-padding: 14 20;
+}
+
+.category-row {
+    -fx-padding: 9 20;
+    -fx-border-color: transparent transparent #1E1E30 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.category-row:hover {
+    -fx-background-color: #242438;
+}
+
+.category-name {
+    -fx-text-fill: #CBD5E1;
+    -fx-font-size: 13px;
+}
+
+.limit-field {
+    -fx-pref-width: 100;
+    -fx-min-width: 80;
+    -fx-font-size: 12px;
+    -fx-padding: 5 10;
+}
+
+.btn-icon-danger {
+    -fx-background-color: transparent;
+    -fx-text-fill: #F43F5E;
+    -fx-font-size: 12px;
+    -fx-padding: 4 8;
+    -fx-cursor: hand;
+    -fx-background-radius: 4;
+}
+
+.btn-icon-danger:hover {
+    -fx-background-color: rgba(244, 63, 94, 0.15);
+}
+
+.budget-bar {
+    -fx-pref-width: 80;
+    -fx-pref-height: 6;
+    -fx-max-height: 6;
+}
+
+.budget-bar-ok .bar {
+    -fx-background-color: linear-gradient(to right, #10B981, #34D399);
+    -fx-background-radius: 4;
+    -fx-background-insets: 0;
+    -fx-effect: dropshadow(gaussian, rgba(16, 185, 129, 0.4), 4, 0, 0, 0);
+}
+
+.budget-bar-warn .bar {
+    -fx-background-color: linear-gradient(to right, #F59E0B, #FCD34D);
+    -fx-background-radius: 4;
+    -fx-background-insets: 0;
+    -fx-effect: dropshadow(gaussian, rgba(245, 158, 11, 0.4), 4, 0, 0, 0);
+}
+
+.budget-bar-over .bar {
+    -fx-background-color: linear-gradient(to right, #F43F5E, #FB7185);
+    -fx-background-radius: 4;
+    -fx-background-insets: 0;
+    -fx-effect: dropshadow(gaussian, rgba(244, 63, 94, 0.5), 4, 0, 0, 0);
+}
+
+.budget-spent {
+    -fx-text-fill: #64748B;
+    -fx-font-size: 11px;
+    -fx-min-width: 90;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
 .scroll-bar {
     -fx-background-color: transparent;
 }
@@ -340,3 +427,21 @@
 .scroll-bar .thumb:hover {
     -fx-background-color: #F43F5E;
 }
+
+/* ===== Transactions ===== */
+
+.table-view .column-header {
+    -fx-padding: 10 12;
+}
+
+.table-cell {
+    -fx-padding: 0 12;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.dialog-pane .label {
+    -fx-text-fill: #94A3B8;
+    -fx-font-size: 13px;
+    -fx-min-width: 90;
+}
+

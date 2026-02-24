@@ -1,9 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Separator?>
 
-<!-- Phase 3: будет заменён на экран транзакций -->
-<StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-           style="-fx-background-color: #12121E;">
-    <Label text="Транзакции — реализация в Phase 3" styleClass="placeholder-label"/>
-</StackPane>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.controller.TransactionController"
+            styleClass="root-pane">
+
+    <top>
+        <VBox>
+            <!-- Заголовок -->
+            <HBox alignment="CENTER_LEFT" style="-fx-padding: 28 32 16 32;">
+                <Label text="Транзакции" styleClass="page-title"/>
+                <Pane HBox.hgrow="ALWAYS"/>
+                <Button text="+ Добавить" styleClass="btn-primary" onAction="#openAddDialog"/>
+            </HBox>
+
+            <!-- Фильтры -->
+            <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 0 32 16 32;">
+                <ComboBox fx:id="filterType" promptText="Все типы" prefWidth="130"/>
+                <ComboBox fx:id="filterCategory" promptText="Все категории" prefWidth="175"/>
+                <DatePicker fx:id="filterDateFrom" promptText="Дата с" prefWidth="135"/>
+                <DatePicker fx:id="filterDateTo" promptText="Дата по" prefWidth="135"/>
+                <TextField fx:id="filterSearch" promptText="Поиск по комментарию" HBox.hgrow="ALWAYS"/>
+                <Button text="Сбросить" styleClass="btn-secondary" onAction="#resetFilters"/>
+            </HBox>
+
+            <Separator/>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tableView" style="-fx-padding: 0 32 0 32;">
+            <placeholder>
+                <Label text="Транзакций нет. Нажмите «+ Добавить»." styleClass="placeholder-label"/>
+            </placeholder>
+            <columns>
+                <TableColumn fx:id="colDate"     text="Дата"          prefWidth="115"/>
+                <TableColumn fx:id="colType"     text="Тип"           prefWidth="100"/>
+                <TableColumn fx:id="colCategory" text="Категория"     prefWidth="160"/>
+                <TableColumn fx:id="colAmount"   text="Сумма"         prefWidth="140"/>
+                <TableColumn fx:id="colComment"  text="Комментарий"/>
+                <TableColumn fx:id="colActions"  text=""
+                             prefWidth="60" minWidth="60" maxWidth="60"
+                             resizable="false" sortable="false"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER" spacing="14"
+              style="-fx-padding: 12 32; -fx-background-color: #12121E;">
+            <Button fx:id="btnPrev" text="◀ Назад"   styleClass="btn-secondary" onAction="#prevPage"/>
+            <Label  fx:id="pageLabel"                styleClass="section-title"/>
+            <Button fx:id="btnNext" text="Вперёд ▶" styleClass="btn-secondary" onAction="#nextPage"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

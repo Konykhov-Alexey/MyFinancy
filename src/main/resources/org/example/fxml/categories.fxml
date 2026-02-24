@@ -1,9 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 
-<!-- Phase 2: будет заменён на экран категорий -->
-<StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-           style="-fx-background-color: #12121E;">
-    <Label text="Категории — реализация в Phase 2" styleClass="placeholder-label"/>
-</StackPane>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.controller.CategoryController"
+            styleClass="root-pane">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" style="-fx-padding: 28 32 20 32;">
+            <Label text="Категории" styleClass="page-title"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+            <HBox spacing="24" style="-fx-padding: 0 32 32 32;">
+
+                <!-- Доходы -->
+                <VBox styleClass="card" HBox.hgrow="ALWAYS" minWidth="0">
+                    <HBox styleClass="col-header" alignment="CENTER_LEFT">
+                        <Label text="▲  Доходы" styleClass="section-title income-label"/>
+                    </HBox>
+                    <Separator/>
+                    <VBox fx:id="incomeList"/>
+                    <Separator/>
+                    <HBox styleClass="add-category-row" spacing="8" alignment="CENTER_LEFT">
+                        <TextField fx:id="incomeNameField"
+                                   promptText="Название категории"
+                                   HBox.hgrow="ALWAYS"
+                                   onAction="#addIncomeCategory"/>
+                        <Button text="+ Добавить" styleClass="btn-success" onAction="#addIncomeCategory"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Расходы -->
+                <VBox styleClass="card" HBox.hgrow="ALWAYS" minWidth="0">
+                    <HBox styleClass="col-header" alignment="CENTER_LEFT">
+                        <Label text="▼  Расходы" styleClass="section-title expense-label"/>
+                    </HBox>
+                    <Separator/>
+                    <VBox fx:id="expenseList"/>
+                    <Separator/>
+                    <HBox styleClass="add-category-row" spacing="8" alignment="CENTER_LEFT">
+                        <TextField fx:id="expenseNameField"
+                                   promptText="Название категории"
+                                   HBox.hgrow="ALWAYS"
+                                   onAction="#addExpenseCategory"/>
+                        <Button text="+ Добавить" styleClass="btn-danger" onAction="#addExpenseCategory"/>
+                    </HBox>
+                </VBox>
+
+            </HBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>
