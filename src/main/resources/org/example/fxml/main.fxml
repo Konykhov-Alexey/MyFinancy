@@ -20,6 +20,7 @@
             <Button fx:id="btnTransactions" text="  Транзакции"   onAction="#showTransactions" styleClass="nav-button" maxWidth="Infinity"/>
             <Button fx:id="btnCategories"   text="  Категории"    onAction="#showCategories"   styleClass="nav-button" maxWidth="Infinity"/>
             <Button fx:id="btnGoals"        text="  Цели"         onAction="#showGoals"        styleClass="nav-button" maxWidth="Infinity"/>
+            <Button fx:id="btnBudget"       text="  Бюджет"       onAction="#showBudget"       styleClass="nav-button" maxWidth="Infinity"/>
             <Button fx:id="btnAnalytics"    text="  Аналитика"   onAction="#showAnalytics"    styleClass="nav-button" maxWidth="Infinity"/>
             <Region VBox.vgrow="ALWAYS"/>
             <Separator/>

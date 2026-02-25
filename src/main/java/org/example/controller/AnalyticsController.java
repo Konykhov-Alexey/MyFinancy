@@ -39,8 +39,6 @@ public class AnalyticsController {
 
     private AnalyticsService service;
 
-    // ── Lifecycle ────────────────────────────────────────────────────
-
     @FXML
     public void initialize() {
         service = new AnalyticsService();
@@ -79,8 +77,6 @@ public class AnalyticsController {
         updateGoals();
     }
 
-    // ── Period helpers ────────────────────────────────────────────────
-
     private LocalDate[] resolveRange() {
         if (CUSTOM.equals(periodCombo.getValue())) {
             LocalDate from = fromPicker.getValue() != null
@@ -104,8 +100,6 @@ public class AnalyticsController {
         if (P12.equals(v)) return 12;
         return 6;
     }
-
-    // ── Bar Chart ─────────────────────────────────────────────────────
 
     private void updateBarChart(int months) {
         barChartBox.getChildren().clear();
@@ -159,8 +153,6 @@ public class AnalyticsController {
         barChartBox.getChildren().add(chart);
     }
 
-    // ── Averages ──────────────────────────────────────────────────────
-
     private void updateAverages(LocalDate from, LocalDate to) {
         Averages avg = service.getExpenseAverages(from, to);
         avgDayLabel.setText(CurrencyFormatter.format(avg.daily()));
@@ -168,13 +160,13 @@ public class AnalyticsController {
         avgMonthLabel.setText(CurrencyFormatter.format(avg.monthly()));
     }
 
-    // ── Top Category ──────────────────────────────────────────────────
+    // Top Category
 
     private void updateTopCategory(LocalDate from, LocalDate to) {
         topCatLabel.setText(service.getTopCategoryName(from, to));
     }
 
-    // ── Categories ────────────────────────────────────────────────────
+    // Categories
 
     private void updateCategories(LocalDate from, LocalDate to) {
         categoriesBox.getChildren().clear();
@@ -218,7 +210,7 @@ public class AnalyticsController {
         }
     }
 
-    // ── Goals ─────────────────────────────────────────────────────────
+    // Goals
 
     private void updateGoals() {
         goalBox.getChildren().clear();
@@ -258,7 +250,7 @@ public class AnalyticsController {
         }
     }
 
-    // ── Helpers ───────────────────────────────────────────────────────
+    // Helpers
 
     private Label buildEmpty(String text) {
         Label lbl = new Label(text);

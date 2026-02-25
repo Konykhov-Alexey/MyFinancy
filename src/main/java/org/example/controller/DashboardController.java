@@ -6,6 +6,7 @@ import javafx.scene.chart.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.*;
+import javafx.scene.shape.Circle;
 import org.example.model.entity.SavingsGoal;
 import org.example.model.entity.Transaction;
 import org.example.model.enums.TransactionType;
@@ -98,7 +99,7 @@ public class DashboardController {
         }
 
         CategoryAxis xAxis = new CategoryAxis();
-        xAxis.setTickLabelRotation(-55);
+        xAxis.setTickLabelRotation(-90);
         xAxis.setTickLabelGap(2);
 
         NumberAxis yAxis = new NumberAxis();
@@ -147,17 +148,59 @@ public class DashboardController {
             return;
         }
 
+        BigDecimal total = cats.stream()
+                .map(CategoryAmount::amount)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
         PieChart chart = new PieChart();
         chart.setAnimated(false);
         chart.setLegendVisible(true);
         chart.setLabelsVisible(false);
+        chart.setStartAngle(90);
         chart.getStyleClass().add("dash-pie-chart");
         chart.setMaxWidth(Double.MAX_VALUE);
+        chart.setMaxHeight(Double.MAX_VALUE);
 
         cats.forEach(ca -> chart.getData().add(
                 new PieChart.Data(ca.name(), ca.amount().doubleValue())));
 
-        pieChartBox.getChildren().add(chart);
+        // Donut hole
+        Circle hole = new Circle(0);
+        hole.getStyleClass().add("pie-donut-hole");
+        hole.setMouseTransparent(true);
+
+        // Center label
+        VBox centerInfo = new VBox(1);
+        centerInfo.setAlignment(Pos.CENTER);
+        centerInfo.setMouseTransparent(true);
+        Label amountLabel = new Label(CurrencyFormatter.format(total));
+        amountLabel.getStyleClass().add("pie-center-amount");
+        Label captionLabel = new Label("расходы");
+        captionLabel.getStyleClass().add("pie-center-caption");
+        centerInfo.getChildren().addAll(amountLabel, captionLabel);
+
+        StackPane wrapper = new StackPane(chart, hole, centerInfo);
+        VBox.setVgrow(wrapper, Priority.ALWAYS);
+        wrapper.setMaxHeight(Double.MAX_VALUE);
+
+        wrapper.widthProperty().addListener((obs, old, w) ->
+                positionDonut(hole, centerInfo, w.doubleValue(), wrapper.getHeight()));
+        wrapper.heightProperty().addListener((obs, old, h) ->
+                positionDonut(hole, centerInfo, wrapper.getWidth(), h.doubleValue()));
+
+        pieChartBox.getChildren().add(wrapper);
+    }
+
+    private void positionDonut(Circle hole, VBox centerInfo, double w, double h) {
+        if (w < 10 || h < 10) return;
+        double legendH  = h * 0.22;
+        double pieAreaH = h - legendH;
+        double pieR     = Math.min(w * 0.88, pieAreaH * 0.88) / 2.0;
+        double holeR    = pieR * 0.38;
+        double dy       = -(legendH / 2.0);
+        hole.setRadius(holeR);
+        hole.setTranslateY(dy);
+        centerInfo.setTranslateY(dy);
     }
 
     // ── Top Categories ───────────────────────────────────────────────

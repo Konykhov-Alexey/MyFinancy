@@ -1724,23 +1724,53 @@
 
 /* ── PieChart срезы ──────────────────────────────────────────── */
 
+/* Тёмный зазор между секторами вместо белой обводки */
+.dash-pie-chart .chart-pie {
+    -fx-stroke: #111115;
+    -fx-stroke-width: 2;
+}
+
+/* Срезы — плоские, чистые цвета */
 .dash-pie-chart .default-color0.chart-pie { -fx-pie-color: #FF2D55; }
 .dash-pie-chart .default-color1.chart-pie { -fx-pie-color: #FF9500; }
-.dash-pie-chart .default-color2.chart-pie { -fx-pie-color: #FFCC02; }
-.dash-pie-chart .default-color3.chart-pie { -fx-pie-color: #34C759; }
-.dash-pie-chart .default-color4.chart-pie { -fx-pie-color: #007AFF; }
-.dash-pie-chart .default-color5.chart-pie { -fx-pie-color: #5856D6; }
-.dash-pie-chart .default-color6.chart-pie { -fx-pie-color: #AF52DE; }
-.dash-pie-chart .default-color7.chart-pie { -fx-pie-color: #FF6B00; }
+.dash-pie-chart .default-color2.chart-pie { -fx-pie-color: #FFD60A; }
+.dash-pie-chart .default-color3.chart-pie { -fx-pie-color: #30D158; }
+.dash-pie-chart .default-color4.chart-pie { -fx-pie-color: #0A84FF; }
+.dash-pie-chart .default-color5.chart-pie { -fx-pie-color: #5E5CE6; }
+.dash-pie-chart .default-color6.chart-pie { -fx-pie-color: #BF5AF2; }
+.dash-pie-chart .default-color7.chart-pie { -fx-pie-color: #FF6B35; }
+
+/* Легенда — круглые точки */
+.dash-pie-chart .chart-pie-legend-symbol {
+    -fx-background-radius: 50%;
+    -fx-padding: 5;
+    -fx-background-insets: 0;
+}
 
 .dash-pie-chart .default-color0.chart-pie-legend-symbol { -fx-background-color: #FF2D55; }
 .dash-pie-chart .default-color1.chart-pie-legend-symbol { -fx-background-color: #FF9500; }
-.dash-pie-chart .default-color2.chart-pie-legend-symbol { -fx-background-color: #FFCC02; }
-.dash-pie-chart .default-color3.chart-pie-legend-symbol { -fx-background-color: #34C759; }
-.dash-pie-chart .default-color4.chart-pie-legend-symbol { -fx-background-color: #007AFF; }
-.dash-pie-chart .default-color5.chart-pie-legend-symbol { -fx-background-color: #5856D6; }
-.dash-pie-chart .default-color6.chart-pie-legend-symbol { -fx-background-color: #AF52DE; }
-.dash-pie-chart .default-color7.chart-pie-legend-symbol { -fx-background-color: #FF6B00; }
+.dash-pie-chart .default-color2.chart-pie-legend-symbol { -fx-background-color: #FFD60A; }
+.dash-pie-chart .default-color3.chart-pie-legend-symbol { -fx-background-color: #30D158; }
+.dash-pie-chart .default-color4.chart-pie-legend-symbol { -fx-background-color: #0A84FF; }
+.dash-pie-chart .default-color5.chart-pie-legend-symbol { -fx-background-color: #5E5CE6; }
+.dash-pie-chart .default-color6.chart-pie-legend-symbol { -fx-background-color: #BF5AF2; }
+.dash-pie-chart .default-color7.chart-pie-legend-symbol { -fx-background-color: #FF6B35; }
+
+/* Donut-дырка и центральный label */
+.pie-donut-hole {
+    -fx-fill: #111115;
+}
+
+.pie-center-amount {
+    -fx-text-fill: #EBEBF0;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.pie-center-caption {
+    -fx-text-fill: #555570;
+    -fx-font-size: 10px;
+}
 
 /* ================================================================
    ANALYTICS — Phase 6
@@ -1856,4 +1886,217 @@
     -fx-text-fill: #44445A;
     -fx-font-size: 11px;
     -fx-alignment: CENTER_RIGHT;
+}
+
+/* ================================================================
+   BUDGET PLANNER (Phase 8)
+   ================================================================ */
+
+/* ── Group Card ───────────────────────────────────────────────── */
+
+.budget-group-card {
+    -fx-background-color: #17171E;
+    -fx-border-color: #1C1C24;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 14 16;
+}
+
+.budget-group-card:hover {
+    -fx-border-color: #252535;
+}
+
+.budget-indicator {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 3, 0, 0, 0);
+}
+
+.budget-group-name {
+    -fx-text-fill: #EBEBF0;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.budget-group-pct {
+    -fx-text-fill: #A0A0B8;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-color: #1C1C2A;
+    -fx-background-radius: 6;
+    -fx-padding: 2 8;
+}
+
+.budget-group-planned {
+    -fx-text-fill: #555570;
+    -fx-font-size: 12px;
+}
+
+/* ── Progress bars ────────────────────────────────────────────── */
+
+.budget-progress-bar {
+    -fx-accent: #22C55E;
+    -fx-pref-height: 8;
+    -fx-background-color: #1C1C24;
+    -fx-background-radius: 4;
+}
+
+.budget-progress-bar .bar {
+    -fx-background-radius: 4;
+    -fx-background-insets: 0;
+}
+
+.budget-progress-bar .track {
+    -fx-background-color: #1C1C24;
+    -fx-background-radius: 4;
+}
+
+.budget-bar-ok .bar {
+    -fx-background-color: #22C55E;
+    -fx-effect: dropshadow(gaussian, rgba(34,197,94,0.3), 4, 0, 0, 0);
+}
+
+.budget-bar-warn .bar {
+    -fx-background-color: #FFB800;
+    -fx-effect: dropshadow(gaussian, rgba(255,184,0,0.3), 4, 0, 0, 0);
+}
+
+.budget-bar-over .bar {
+    -fx-background-color: #FF2D55;
+    -fx-effect: dropshadow(gaussian, rgba(255,45,85,0.3), 4, 0, 0, 0);
+}
+
+/* ── Spend labels ─────────────────────────────────────────────── */
+
+.budget-spent-label {
+    -fx-text-fill: #EBEBF0;
+    -fx-font-size: 12px;
+}
+
+.budget-limit-label {
+    -fx-text-fill: #555570;
+    -fx-font-size: 12px;
+}
+
+.budget-remain-ok {
+    -fx-text-fill: #22C55E;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.budget-remain-over {
+    -fx-text-fill: #FF2D55;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+/* ── Allocation bar ───────────────────────────────────────────── */
+
+.budget-allocation-bar {
+    -fx-pref-height: 10;
+    -fx-background-color: #1C1C24;
+    -fx-background-radius: 5;
+}
+
+.budget-allocation-bar .track {
+    -fx-background-color: #1C1C24;
+    -fx-background-radius: 5;
+}
+
+.budget-allocation-bar .bar {
+    -fx-background-radius: 5;
+    -fx-background-insets: 0;
+}
+
+.budget-allocation-bar-ok .bar {
+    -fx-background-color: #22C55E;
+}
+
+.budget-allocation-bar-warn .bar {
+    -fx-background-color: #FFB800;
+}
+
+.budget-allocation-bar-over .bar {
+    -fx-background-color: #FF2D55;
+}
+
+.budget-allocation-label {
+    -fx-text-fill: #555570;
+    -fx-font-size: 11px;
+}
+
+.budget-warning-label {
+    -fx-text-fill: #FF2D55;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255,45,85,0.12);
+    -fx-background-radius: 6;
+    -fx-padding: 3 10;
+}
+
+.budget-unallocated {
+    -fx-text-fill: #22C55E;
+    -fx-font-size: 13px;
+}
+
+/* ── Category selector ────────────────────────────────────────── */
+
+.budget-cat-row {
+    -fx-padding: 5 0;
+    -fx-border-color: transparent transparent #16161C transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.budget-cat-name {
+    -fx-text-fill: #A0A0B8;
+    -fx-font-size: 13px;
+}
+
+.category-group-selector {
+    -fx-background-color: #17171E;
+    -fx-border-color: #1C1C24;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-text-fill: #A0A0B8;
+    -fx-font-size: 12px;
+    -fx-pref-height: 30;
+    -fx-cursor: hand;
+}
+
+.category-group-selector:hover {
+    -fx-border-color: #FF2D55;
+}
+
+.category-group-selector .list-cell {
+    -fx-text-fill: #A0A0B8;
+    -fx-background-color: #17171E;
+    -fx-padding: 4 10;
+}
+
+.category-group-selector .list-cell:filled:hover {
+    -fx-background-color: rgba(255,45,85,0.1);
+    -fx-text-fill: #EBEBF0;
+}
+
+/* ── Icon buttons ─────────────────────────────────────────────── */
+
+.btn-icon {
+    -fx-background-color: #1C1C2A;
+    -fx-text-fill: #555570;
+    -fx-font-size: 12px;
+    -fx-pref-width: 28;
+    -fx-pref-height: 28;
+    -fx-background-radius: 6;
+    -fx-border-width: 0;
+    -fx-cursor: hand;
+    -fx-padding: 0;
+}
+
+.btn-icon:hover {
+    -fx-background-color: #252535;
+    -fx-text-fill: #A0A0B8;
+}
+
+.btn-icon-danger:hover {
+    -fx-background-color: rgba(255,45,85,0.15);
+    -fx-text-fill: #FF2D55;
 }

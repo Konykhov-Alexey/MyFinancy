@@ -20,13 +20,14 @@ public class MainController {
     @FXML private Button btnTransactions;
     @FXML private Button btnCategories;
     @FXML private Button btnGoals;
+    @FXML private Button btnBudget;
     @FXML private Button btnAnalytics;
 
     private List<Button> navButtons;
 
     @FXML
     public void initialize() {
-        navButtons = List.of(btnDashboard, btnTransactions, btnCategories, btnGoals, btnAnalytics);
+        navButtons = List.of(btnDashboard, btnTransactions, btnCategories, btnGoals, btnBudget, btnAnalytics);
         showDashboard();
     }
 
@@ -34,6 +35,7 @@ public class MainController {
     @FXML private void showTransactions() { loadView("/org/example/fxml/transactions.fxml", btnTransactions); }
     @FXML private void showCategories()   { loadView("/org/example/fxml/categories.fxml",   btnCategories); }
     @FXML private void showGoals()        { loadView("/org/example/fxml/goals.fxml",        btnGoals); }
+    @FXML private void showBudget()       { loadView("/org/example/fxml/budget.fxml",       btnBudget); }
     @FXML private void showAnalytics()    { loadView("/org/example/fxml/analytics.fxml",    btnAnalytics); }
 
     private void loadView(String fxmlPath, Button activeBtn) {

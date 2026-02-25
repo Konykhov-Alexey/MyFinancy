@@ -18,6 +18,7 @@
         <property name="hibernate.show_sql">false</property>
 
         <!-- Entity mappings -->
+        <mapping class="org.example.model.entity.BudgetGroup"/>
         <mapping class="org.example.model.entity.Category"/>
         <mapping class="org.example.model.entity.Transaction"/>
         <mapping class="org.example.model.entity.SavingsGoal"/>
