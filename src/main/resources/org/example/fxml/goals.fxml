@@ -18,12 +18,18 @@
     <top>
         <VBox>
             <HBox alignment="CENTER_LEFT" spacing="12" style="-fx-padding: 26 32 14 32;">
-                <Label text="Цели накопления" styleClass="page-title"/>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="&#xF4D3;" styleClass="icon-lg icon-muted"/>
+                    <Label text="Цели накопления" styleClass="page-title"/>
+                </HBox>
                 <Pane HBox.hgrow="ALWAYS"/>
                 <Label text="Сортировать:" styleClass="section-title"
                        style="-fx-padding: 0 4 0 0;"/>
                 <ComboBox fx:id="sortCombo" prefWidth="160"/>
-                <Button text="+ Новая цель" styleClass="btn-primary" onAction="#openAddDialog"/>
+                <Button onAction="#openAddDialog" styleClass="btn-primary"
+                        text="Новая цель" graphicTextGap="8">
+                    <graphic><Label text="&#xF055;" styleClass="icon-sm icon-primary"/></graphic>
+                </Button>
             </HBox>
             <Separator/>
         </VBox>

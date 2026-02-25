@@ -1,0 +1,141 @@
+[    1293ms] [WARNING] Error with Permissions-Policy header: Invalid allowlist item(https://pay.google.com) for feature payment. Allowlist item must be *, self or quoted url. @ :0
+[    6063ms] [ERROR] Failed executing:  if (!sessionStorage.ssmPv){
+  sessionStorage.ssmPv=0;
+}
+setInterval(() => {
+    let currentValue = sessionStorage.getItem("ssmPv");
+    let newValue = currentValue === "1" ? "0" : "1";
+    sessionStorage.setItem("ssmPv", newValue);
+}, 3000);
+
+googletag.pubads().addEventListener("slotRenderEnded", (event) => {
+	if (event.slot.getAdUnitPath()=="/78011819,9837927/FLATICON_COM_LIST_1" && !event.isEmpty){
+		if (event.size[0]<="336"){
+		    ssmSmartTag.log("[][][]Slot width",event.size[0]);
+			var ssmSlot = document.getElementById(event.slot.getSlotElementId());
+		    if (ssmSlot) {		  
+			  if (!document.getElementById("ssmMpu1")){
+			  let ssmMpu1 = document.createElement("div");
+			  ssmMpu1.id = "ssmMpu1";
+			  ssmMpu1.style.display="inline-flex"
+			  ssmSlot.parentNode.insertBefore(ssmMpu1, ssmSlot);
+			  }
+		  	  if (!document.getElementById("ssmMpu2")){
+			  let ssmMpu2 = document.createElement("div");
+			  ssmMpu2.id = "ssmMpu2";
+			  ssmMpu2.style.display="inline-flex"
+		  ssmSlot.parentNode.insertBefore(ssmMpu2, ssmSlot.nextSibling);
+				}
+		  }
+		}
+	}
+  if (event.slot.getAdUnitPath()=="/78011819,9837927/FLATICON_COM_LIST_2" && !event.isEmpty){
+		if (event.size[0]<="336"){
+		    ssmSmartTag.log("[][][]Slot width",event.size[0]);
+			var ssmSlot = document.getElementById(event.slot.getSlotElementId());
+		    if (ssmSlot) {		  
+			  if (!document.getElementById("ssmMpu21")){
+			  let ssmMpu1 = document.createElement("div");
+			  ssmMpu1.id = "ssmMpu21";
+			  ssmMpu1.style.display="inline-flex"
+			  ssmSlot.parentNode.insertBefore(ssmMpu1, ssmSlot);
+			  }
+		  	  if (!document.getElementById("ssmMpu22")){
+			  let ssmMpu2 = document.createElement("div");
+			  ssmMpu2.id = "ssmMpu22";
+			  ssmMpu2.style.display="inline-flex"
+		  ssmSlot.parentNode.insertBefore(ssmMpu2, ssmSlot.nextSibling);
+				}
+		  }
+		}
+	}
+});
+/*
+(function ssmInitSlotRefreshWatcher(ssmIntervalSeconds = 15, ssmRefreshThresholdSeconds = 1) {
+  
+  ssmSmartTag.log("[SSM BOOST]=>ON");
+  if (!window.ssmAdSlotTime) window.ssmAdSlotTime = {};
+  if (!window.ssmAdSlotLineItem) window.ssmAdSlotLineItem = {}; // guardamos el último lineItemId
+
+  const ssmNow = () => Date.now();
+
+  googletag.cmd.push(() => {
+    // Evento cuando un slot termina de renderizar
+    googletag.pubads().addEventListener('slotRenderEnded', (ssmEvent) => {
+      const ssmRenderedId = ssmEvent.slot.getSlotElementId();
+      window.ssmAdSlotTime[ssmRenderedId] = ssmNow();
+      window.ssmAdSlotLineItem[ssmRenderedId] = ssmEvent.lineItemId; // guardamos el lineItemId
+
+      if (ssmEvent.lineItemId === 7002356118) {
+        const ssmTargeting = ssmEvent.slot.getTargeting('ssmBoost');
+        if (ssmTargeting.includes('true')) {
+          ssmEvent.slot.clearTargeting('up_recovery');
+        }
+      }
+    });
+  });
+
+  // Verifica si un elemento está visible en el viewport
+  function ssmIsInViewport(ssmElement) {
+    const ssmRect = ssmElement.getBoundingClientRect();
+    return (
+      ssmRect.top < window.innerHeight &&
+      ssmRect.bottom > 0 &&
+      ssmRect.left < window.innerWidth &&
+      ssmRect.right > 0
+    );
+  }
+
+  // Limpia claves hb_* y amzn*
+  function ssmClearHBAndAmznKeys(slot) {
+    const keys = slot.getTargetingKeys();
+    keys.forEach(key => {
+      if (key.startsWith("hb_") || key.startsWith("amzn")) {
+        slot.clearTargeting(key);
+      }
+    });
+  }
+
+  // Intervalo de comprobación
+  setInterval(() => {
+    const ssmCurrentTime = Date.now();
+
+    for (const ssmSlotId in window.ssmAdSlotTime) {
+      const ssmLastRendered = window.ssmAdSlotTime[ssmSlotId];
+      const ssmLastLineItem = window.ssmAdSlotLineItem[ssmSlotId]; // recuperamos el lineItemId
+      const ssmDiffSeconds = (ssmCurrentTime - ssmLastRendered) / 1000;
+
+      if (ssmDiffSeconds >= ssmIntervalSeconds) {
+        const ssmElement = document.getElementById(ssmSlotId);
+        if (ssmElement && ssmIsInViewport(ssmElement)) {
+          const ssmSlot = googletag.pubads().getSlots().find(
+            s => s.getSlotElementId() === ssmSlotId
+          );
+
+          // ✅ SOLO refresca si el último lineItemId fue 7002356118
+          if (ssmSlot && ssmLastLineItem === 7050801247) {
+            if (ssmSlot.getAdUnitPath().indexOf("1x1") === -1) {
+              googletag.cmd.push(() => {
+                let ssmLastRefreshDate = new Date(ssmLastRendered).toLocaleTimeString(); 
+                let ssmNewRefreshDate = new Date(ssmCurrentTime).toLocaleTimeString(); 
+
+                // 🔄 Limpia las claves hb_* y amzn* antes de refrescar
+                ssmClearHBAndAmznKeys(ssmSlot);
+
+                ssmSlot.setTargeting("up_recovery", "true");
+                googletag.pubads().refresh([ssmSlot]);
+                ssmSmartTag.log("[SSM BOOST]=>", ssmSlotId, 'last Refresh', ssmLastRefreshDate, 'new refresh date', ssmNewRefreshDate, ' each ', ssmDiffSeconds, "secs");
+              });
+              window.ssmAdSlotTime[ssmSlotId] = ssmCurrentTime;
+            }
+          }
+        }
+      }
+    }
+  }, ssmRefreshThresholdSeconds * 1000);
+
+})();*/  @ https://ssm.codes/smart-tag/flaticoncomv2.js:90
+[    9084ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://seoab.io/:0
+[   19099ms] [WARNING] [GSI_LOGGER]: Your client application uses one of the Google One Tap prompt UI status methods that may stop functioning when FedCM becomes mandatory. Refer to the migration guide to update your code accordingly and opt-in to FedCM to test your changes. Learn more: https://developers.google.com/identity/gsi/web/guides/fedcm-migration?s=dc#display_moment and https://developers.google.com/identity/gsi/web/guides/fedcm-migration?s=dc#skipped_moment @ https://accounts.google.com/gsi/client:80
+[   19116ms] [ERROR] Not signed in with the identity provider. @ https://www.flaticon.com/uicons/interface-icons:0
+[   21474ms] [ERROR] [GSI_LOGGER]: FedCM get() rejects with NetworkError: Error retrieving a token. @ https://accounts.google.com/gsi/client:81

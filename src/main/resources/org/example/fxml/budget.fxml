@@ -19,13 +19,19 @@
     <top>
         <VBox>
             <HBox alignment="CENTER_LEFT" spacing="12" style="-fx-padding: 26 32 14 32;">
-                <VBox spacing="3">
-                    <Label text="Бюджетный план" styleClass="page-title"/>
-                    <Label text="Планирование и исполнение бюджета" styleClass="page-subtitle"/>
-                </VBox>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="&#xF555;" styleClass="icon-lg icon-muted"/>
+                    <VBox spacing="3">
+                        <Label text="Бюджетный план" styleClass="page-title"/>
+                        <Label text="Планирование и исполнение бюджета" styleClass="page-subtitle"/>
+                    </VBox>
+                </HBox>
                 <Pane HBox.hgrow="ALWAYS"/>
                 <ComboBox fx:id="monthCombo" styleClass="filter-combo" prefWidth="160"/>
-                <Button text="↻  Обновить" styleClass="btn-secondary" onAction="#refresh"/>
+                <Button styleClass="btn-secondary" onAction="#refresh"
+                        text="Обновить" graphicTextGap="8">
+                    <graphic><Label text="&#xF021;" styleClass="icon-sm"/></graphic>
+                </Button>
             </HBox>
             <Separator/>
         </VBox>

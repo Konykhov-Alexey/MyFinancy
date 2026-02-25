@@ -18,9 +18,12 @@
     <top>
         <VBox>
             <HBox alignment="CENTER_LEFT" spacing="12" style="-fx-padding: 26 32 14 32;">
-                <VBox spacing="3">
-                    <Label text="Аналитика" styleClass="page-title"/>
-                </VBox>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="&#xF080;" styleClass="icon-lg icon-muted"/>
+                    <VBox spacing="3">
+                        <Label text="Аналитика" styleClass="page-title"/>
+                    </VBox>
+                </HBox>
                 <Pane HBox.hgrow="ALWAYS"/>
                 <ComboBox fx:id="periodCombo" prefWidth="145"/>
                 <DatePicker fx:id="fromPicker" promptText="От" prefWidth="140"/>

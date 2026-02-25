@@ -1,0 +1,12 @@
+[    4029ms] Error: Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+    at rD (https://mobbin.com/_next/static/chunks/4bd1b696-3a2f619ba6940c6e.js?dpl=dpl_65JWHKnuJ5wUzkq4SPUihc9DjoKs:1:35431)
+    at rO (https://mobbin.com/_next/static/chunks/4bd1b696-3a2f619ba6940c6e.js?dpl=dpl_65JWHKnuJ5wUzkq4SPUihc9DjoKs:1:36464)
+    at https://mobbin.com/_next/static/chunks/4bd1b696-3a2f619ba6940c6e.js?dpl=dpl_65JWHKnuJ5wUzkq4SPUihc9DjoKs:1:118452
+    at ix (https://mobbin.com/_next/static/chunks/4bd1b696-3a2f619ba6940c6e.js?dpl=dpl_65JWHKnuJ5wUzkq4SPUihc9DjoKs:1:123324)
+    at ik (https://mobbin.com/_next/static/chunks/4bd1b696-3a2f619ba6940c6e.js?dpl=dpl_65JWHKnuJ5wUzkq4SPUihc9DjoKs:1:115112)
+    at https://mobbin.com/_next/static/chunks/4bd1b696-3a2f619ba6940c6e.js?dpl=dpl_65JWHKnuJ5wUzkq4SPUihc9DjoKs:1:111099
+    at iu (https://mobbin.com/_next/static/chunks/4bd1b696-3a2f619ba6940c6e.js?dpl=dpl_65JWHKnuJ5wUzkq4SPUihc9DjoKs:1:111200)
+    at iX (https://mobbin.com/_next/static/chunks/4bd1b696-3a2f619ba6940c6e.js?dpl=dpl_65JWHKnuJ5wUzkq4SPUihc9DjoKs:1:133303)
+    at MessagePort.x (https://mobbin.com/_next/static/chunks/4472-e4ef23bb524df834.js?dpl=dpl_65JWHKnuJ5wUzkq4SPUihc9DjoKs:5:56811)
+[    4170ms] [ERROR] Not signed in with the identity provider. @ https://mobbin.com/?redirect_to=%2Fdiscover%2Fapps%2Fweb%3Fcategory%3Dfinance:0
+[   10803ms] [ERROR] [GSI_LOGGER]: FedCM get() rejects with NetworkError: Error retrieving a token. @ https://mobbin.com/_next/static/chunks/4472-e4ef23bb524df834.js?dpl=dpl_65JWHKnuJ5wUzkq4SPUihc9DjoKs:17

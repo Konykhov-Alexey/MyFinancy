@@ -1,0 +1,8 @@
+[     332ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://www.flaticon.com/download/uicons:0
+[    2883ms] TypeError: webVitals.getCLS is not a function
+    at a.onload (<anonymous>:1:142)
+[    3060ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://seoab.io/:0
+[    3289ms] [WARNING] [GSI_LOGGER]: Your client application uses one of the Google One Tap prompt UI status methods that may stop functioning when FedCM becomes mandatory. Refer to the migration guide to update your code accordingly and opt-in to FedCM to test your changes. Learn more: https://developers.google.com/identity/gsi/web/guides/fedcm-migration?s=dc#display_moment and https://developers.google.com/identity/gsi/web/guides/fedcm-migration?s=dc#skipped_moment @ https://accounts.google.com/gsi/client:80
+[    3349ms] [ERROR] Not signed in with the identity provider. @ https://www.flaticon.com/download/uicons:0
+[    6323ms] [ERROR] [GSI_LOGGER]: FedCM get() rejects with NetworkError: Error retrieving a token. @ https://accounts.google.com/gsi/client:81
+[    9129ms] [WARNING] The resource https://media.flaticon.com/dist/min/img/logo/flaticon_negative.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.flaticon.com/download/uicons:0

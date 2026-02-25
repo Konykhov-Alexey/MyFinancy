@@ -22,7 +22,7 @@ public class CategoryRepository {
     public List<Category> findByType(CategoryType type) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery(
-                    "FROM Category WHERE type = :type ORDER BY isDefault DESC, name", Category.class)
+                    "FROM Category c LEFT JOIN FETCH c.group WHERE c.type = :type ORDER BY c.isDefault DESC, c.name", Category.class)
                     .setParameter("type", type)
                     .list();
         }

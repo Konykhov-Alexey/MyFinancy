@@ -19,9 +19,6 @@ public class BudgetService {
 
     private static final Logger log = LoggerFactory.getLogger(BudgetService.class);
 
-    // ── Data Records ─────────────────────────────────────────────────
-
-    /** Исполнение одной бюджетной группы за месяц. */
     public record GroupBudget(
             BudgetGroup group,
             BigDecimal  planned,    // monthlyIncome × percentage / 100
@@ -167,9 +164,9 @@ public class BudgetService {
     }
 
     /**
-     * Проверяет, что сумма процентов не превысит 100.
-     * @param pct       процент добавляемой/редактируемой группы
-     * @param excludeId id группы, которую исключить из суммы (для редактирования; null — для создания)
+     *
+     * ПРОВЕРКА НА ПРОЦЕНТНОЕ РАСПРЕДЕЛЕНИЕ
+     *
      */
     private void validateTotalPercentage(BigDecimal pct, Long excludeId) {
         BigDecimal sum = groupRepo.findAll().stream()
@@ -178,8 +175,7 @@ public class BudgetService {
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
         if (sum.add(pct).compareTo(BigDecimal.valueOf(100)) > 0) {
             throw new IllegalArgumentException(
-                    "Сумма процентов всех групп не может превышать 100%. " +
-                    "Уже распределено: " + sum.toPlainString() + "%");
+                    "Сумма процентов всех групп не может превышать 100%");
         }
     }
 }

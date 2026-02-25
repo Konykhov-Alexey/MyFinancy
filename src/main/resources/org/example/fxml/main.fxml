@@ -16,15 +16,39 @@
         <VBox styleClass="sidebar" prefWidth="228">
             <Label text="MyFinancy" styleClass="app-title"/>
             <Separator/>
-            <Button fx:id="btnDashboard"    text="  Главная"      onAction="#showDashboard"    styleClass="nav-button" maxWidth="Infinity"/>
-            <Button fx:id="btnTransactions" text="  Транзакции"   onAction="#showTransactions" styleClass="nav-button" maxWidth="Infinity"/>
-            <Button fx:id="btnCategories"   text="  Категории"    onAction="#showCategories"   styleClass="nav-button" maxWidth="Infinity"/>
-            <Button fx:id="btnGoals"        text="  Цели"         onAction="#showGoals"        styleClass="nav-button" maxWidth="Infinity"/>
-            <Button fx:id="btnBudget"       text="  Бюджет"       onAction="#showBudget"       styleClass="nav-button" maxWidth="Infinity"/>
-            <Button fx:id="btnAnalytics"    text="  Аналитика"   onAction="#showAnalytics"    styleClass="nav-button" maxWidth="Infinity"/>
+            <Button fx:id="btnDashboard" text="Главная" onAction="#showDashboard"
+                    styleClass="nav-button" maxWidth="Infinity"
+                    graphicTextGap="10">
+                <graphic><Label text="&#xF015;" styleClass="nav-icon"/></graphic>
+            </Button>
+            <Button fx:id="btnTransactions" text="Транзакции" onAction="#showTransactions"
+                    styleClass="nav-button" maxWidth="Infinity"
+                    graphicTextGap="10">
+                <graphic><Label text="&#xF543;" styleClass="nav-icon"/></graphic>
+            </Button>
+            <Button fx:id="btnCategories" text="Категории" onAction="#showCategories"
+                    styleClass="nav-button" maxWidth="Infinity"
+                    graphicTextGap="10">
+                <graphic><Label text="&#xF02C;" styleClass="nav-icon"/></graphic>
+            </Button>
+            <Button fx:id="btnGoals" text="Цели" onAction="#showGoals"
+                    styleClass="nav-button" maxWidth="Infinity"
+                    graphicTextGap="10">
+                <graphic><Label text="&#xF4D3;" styleClass="nav-icon"/></graphic>
+            </Button>
+            <Button fx:id="btnBudget" text="Бюджет" onAction="#showBudget"
+                    styleClass="nav-button" maxWidth="Infinity"
+                    graphicTextGap="10">
+                <graphic><Label text="&#xF555;" styleClass="nav-icon"/></graphic>
+            </Button>
+            <Button fx:id="btnAnalytics" text="Аналитика" onAction="#showAnalytics"
+                    styleClass="nav-button" maxWidth="Infinity"
+                    graphicTextGap="10">
+                <graphic><Label text="&#xF080;" styleClass="nav-icon"/></graphic>
+            </Button>
             <Region VBox.vgrow="ALWAYS"/>
             <Separator/>
-            <Label text="MyFinancy v1.0" styleClass="section-title" style="-fx-padding: 12 20;"/>
+            <Label text="v1.0" styleClass="section-title" style="-fx-padding: 12 20;"/>
         </VBox>
     </left>
 

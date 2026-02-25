@@ -21,9 +21,15 @@
         <VBox>
             <!-- Заголовок -->
             <HBox alignment="CENTER_LEFT" style="-fx-padding: 26 32 14 32;">
-                <Label text="Транзакции" styleClass="page-title"/>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="&#xF543;" styleClass="icon-lg icon-muted"/>
+                    <Label text="Транзакции" styleClass="page-title"/>
+                </HBox>
                 <Pane HBox.hgrow="ALWAYS"/>
-                <Button text="+ Добавить" styleClass="btn-primary" onAction="#openAddDialog"/>
+                <Button onAction="#openAddDialog" styleClass="btn-primary"
+                        text="Добавить" graphicTextGap="8">
+                    <graphic><Label text="&#xF055;" styleClass="icon-sm icon-primary"/></graphic>
+                </Button>
             </HBox>
 
             <!-- Фильтры -->

@@ -17,7 +17,10 @@
     <top>
         <VBox>
             <HBox alignment="CENTER_LEFT" style="-fx-padding: 26 32 18 32;">
-                <Label text="Категории" styleClass="page-title"/>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="&#xF02C;" styleClass="icon-lg icon-muted"/>
+                    <Label text="Категории" styleClass="page-title"/>
+                </HBox>
             </HBox>
             <Separator/>
         </VBox>

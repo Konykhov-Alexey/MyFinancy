@@ -1,0 +1,2 @@
+[     370ms] [WARNING] Error with Permissions-Policy header: Invalid allowlist item(https://pay.google.com) for feature payment. Allowlist item must be *, self or quoted url. @ :0
+[    2591ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://seoab.io/:0

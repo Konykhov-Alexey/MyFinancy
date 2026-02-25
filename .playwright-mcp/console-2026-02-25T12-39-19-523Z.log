@@ -1,0 +1,5 @@
+[    2656ms] Uncaught TypeError: Cannot read properties of null (reading 'remove')
+    at <anonymous> (https://cdn.carbonads.com/carbon.js?serve=CESDP23J&placement=carbonnowsh:0:2037)
+    at <anonymous> (https://cdn.carbonads.com/carbon.js?serve=CESDP23J&placement=carbonnowsh:0:2174)
+    at <anonymous> (https://cdn.carbonads.com/carbon.js?serve=CESDP23J&placement=carbonnowsh:0:2803)
+    at <anonymous> (https://cdn.carbonads.com/carbon.js?serve=CESDP23J&placement=carbonnowsh:0:2778)
