@@ -9,6 +9,7 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.GridPane?>
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
@@ -80,6 +81,24 @@
                 <VBox fx:id="goalSection" styleClass="card" spacing="12">
                     <Label text="ПРОГРЕСС ЦЕЛЕЙ НАКОПЛЕНИЯ" styleClass="section-title"/>
                     <VBox fx:id="goalBox" spacing="10"/>
+                </VBox>
+
+                <!-- ── Phase 9: Тепловая карта ── -->
+                <VBox styleClass="card" spacing="12">
+                    <Label text="ТЕПЛОВАЯ КАРТА РАСХОДОВ" styleClass="section-title"/>
+                    <VBox fx:id="heatmapBox" spacing="4"/>
+                </VBox>
+
+                <!-- ── Phase 9: Прогноз ── -->
+                <VBox styleClass="card" spacing="12">
+                    <Label text="ПРОГНОЗ РАСХОДОВ НА МЕСЯЦ" styleClass="section-title"/>
+                    <VBox fx:id="forecastBox"/>
+                </VBox>
+
+                <!-- ── Phase 9: Аномалии ── -->
+                <VBox fx:id="anomalySection" styleClass="card" spacing="12">
+                    <Label text="АНОМАЛИИ РАСХОДОВ" styleClass="section-title"/>
+                    <VBox fx:id="anomalyBox" spacing="0"/>
                 </VBox>
 
             </VBox>
