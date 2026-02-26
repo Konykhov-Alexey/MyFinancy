@@ -5,9 +5,16 @@ import javafx.geometry.Pos;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.control.Tooltip;
 import org.example.service.AnalyticsService;
 import org.example.service.AnalyticsService.*;
+import org.example.service.Analytics2Service;
+import org.example.service.Analytics2Service.*;
 import org.example.util.CurrencyFormatter;
+
+import java.util.Arrays;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -37,11 +44,18 @@ public class AnalyticsController {
     @FXML private VBox             goalSection;
     @FXML private VBox             goalBox;
 
-    private AnalyticsService service;
+    @FXML private VBox             heatmapBox;
+    @FXML private VBox             forecastBox;
+    @FXML private VBox             anomalyBox;
+    @FXML private VBox             anomalySection;
+
+    private AnalyticsService  service;
+    private Analytics2Service service2;
 
     @FXML
     public void initialize() {
-        service = new AnalyticsService();
+        service  = new AnalyticsService();
+        service2 = new Analytics2Service();
 
         periodCombo.getItems().addAll(P3, P6, P12, CUSTOM);
         periodCombo.setValue(P6);
@@ -75,6 +89,9 @@ public class AnalyticsController {
         updateTopCategory(from, to);
         updateCategories(from, to);
         updateGoals();
+        updateHeatmap();
+        updateForecast();
+        updateAnomalies();
     }
 
     private LocalDate[] resolveRange() {
@@ -247,6 +264,111 @@ public class AnalyticsController {
 
             row.getChildren().addAll(name, bar, pctLabel, amounts);
             goalBox.getChildren().add(row);
+        }
+    }
+
+    // Heatmap
+
+    private void updateHeatmap() {
+        heatmapBox.getChildren().clear();
+        List<HeatmapDay> days = service2.getHeatmapData(YearMonth.now());
+
+        GridPane grid = new GridPane();
+        grid.setHgap(4);
+        grid.setVgap(4);
+
+        String[] dayLabels = {"Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"};
+        for (int i = 0; i < 7; i++) {
+            Label lbl = new Label(dayLabels[i]);
+            lbl.getStyleClass().add("heatmap-day-label");
+            lbl.setPrefWidth(28);
+            lbl.setAlignment(Pos.CENTER);
+            grid.add(lbl, i, 0);
+        }
+
+        int startCol = YearMonth.now().atDay(1).getDayOfWeek().getValue() - 1;
+        for (HeatmapDay hd : days) {
+            int idx = hd.date().getDayOfMonth() - 1;
+            int col = (startCol + idx) % 7;
+            int row = (startCol + idx) / 7 + 1;
+
+            Pane cell = new Pane();
+            cell.getStyleClass().addAll("heatmap-cell", "heatmap-intensity-" + hd.intensity());
+
+            String tip = hd.date().toString();
+            if (hd.total().compareTo(BigDecimal.ZERO) > 0) {
+                tip += " — " + CurrencyFormatter.format(hd.total());
+            }
+            Tooltip.install(cell, new Tooltip(tip));
+            grid.add(cell, col, row);
+        }
+
+        heatmapBox.getChildren().add(grid);
+    }
+
+    // Forecast
+
+    private void updateForecast() {
+        forecastBox.getChildren().clear();
+        ForecastData fd = service2.getForecast(YearMonth.now());
+
+        HBox row = new HBox(16);
+        row.setAlignment(Pos.CENTER_LEFT);
+
+        Label projLabel = new Label("≈ " + CurrencyFormatter.format(fd.projected()));
+        projLabel.getStyleClass().add("forecast-value");
+
+        Label badge = new Label();
+        switch (fd.status()) {
+            case "ok"     -> { badge.setText("В норме");    badge.getStyleClass().add("forecast-ok");     }
+            case "warn"   -> { badge.setText("Внимание");   badge.getStyleClass().add("forecast-warn");   }
+            case "danger" -> { badge.setText("Превышение"); badge.getStyleClass().add("forecast-danger"); }
+        }
+        badge.getStyleClass().add("anomaly-badge");
+
+        String sign = fd.delta().compareTo(BigDecimal.ZERO) >= 0 ? "+" : "";
+        Label metaLabel = new Label(sign + CurrencyFormatter.format(fd.delta()) +
+                                     " vs прошлый месяц (" + CurrencyFormatter.format(fd.lastMonthTotal()) + ")");
+        metaLabel.getStyleClass().add("forecast-meta");
+
+        row.getChildren().addAll(projLabel, badge, metaLabel);
+        forecastBox.getChildren().add(row);
+    }
+
+    // Anomalies
+
+    private void updateAnomalies() {
+        anomalyBox.getChildren().clear();
+        List<AnomalyEntry> anomalies = service2.detectAnomalies(YearMonth.now());
+
+        anomalySection.setVisible(!anomalies.isEmpty());
+        anomalySection.setManaged(!anomalies.isEmpty());
+
+        for (AnomalyEntry ae : anomalies) {
+            HBox row = new HBox(12);
+            row.setAlignment(Pos.CENTER_LEFT);
+            row.getStyleClass().add("anomaly-row");
+
+            Label catName = new Label(ae.category());
+            catName.getStyleClass().add("anomaly-cat-name");
+            catName.setPrefWidth(140);
+            catName.setMinWidth(140);
+
+            Label currentLabel = new Label(CurrencyFormatter.format(ae.currentSum()));
+            currentLabel.getStyleClass().add("dash-cat-amount");
+            currentLabel.setPrefWidth(100);
+
+            Label metaLabel = new Label("Норма: " + CurrencyFormatter.format(ae.mean()) +
+                                         " ± " + CurrencyFormatter.format(ae.sigma()));
+            metaLabel.getStyleClass().add("anomaly-meta");
+            HBox.setHgrow(metaLabel, Priority.ALWAYS);
+            metaLabel.setMaxWidth(Double.MAX_VALUE);
+
+            Label badge = new Label(String.format("+%.0f%%", ae.deviationPct()));
+            badge.getStyleClass().addAll("anomaly-badge", "anomaly-badge-high");
+
+            row.getChildren().addAll(catName, currentLabel, metaLabel, badge);
+            anomalyBox.getChildren().add(row);
         }
     }
 
