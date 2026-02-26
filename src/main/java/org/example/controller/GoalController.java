@@ -320,14 +320,29 @@ public class GoalController {
     // Отмена целb
 
     private void confirmCancel(SavingsGoal goal) {
-        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+        ButtonType cancelGoalType = new ButtonType("Отменить цель", ButtonBar.ButtonData.OK_DONE);
+        ButtonType closeType = new ButtonType("Закрыть", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        Alert confirm = new Alert(Alert.AlertType.NONE);
         confirm.setTitle("Отменить цель");
         confirm.setHeaderText("Отменить цель «" + goal.getName() + "»?");
         confirm.setContentText("Накопленная сумма " + CurrencyFormatter.format(goal.getCurrentAmount()) +
                 " сохранится, но цель будет помечена как отменённая.");
+        confirm.getButtonTypes().setAll(cancelGoalType, closeType);
+
+        Label icon = new Label("✕");
+        icon.setStyle(
+            "-fx-text-fill: #EF4444; -fx-font-size: 16px; -fx-font-weight: bold;" +
+            "-fx-background-color: rgba(239,68,68,0.12);" +
+            "-fx-background-radius: 8; -fx-padding: 7 11;"
+        );
+        confirm.setGraphic(icon);
+
         confirm.getDialogPane().getStylesheets().addAll(goalsPane.getScene().getStylesheets());
+        confirm.getDialogPane().getStyleClass().add("danger-dialog");
+
         confirm.showAndWait()
-               .filter(b -> b == ButtonType.OK)
+               .filter(b -> b == cancelGoalType)
                .ifPresent(b -> { service.cancel(goal); refresh(); });
     }
 

@@ -1312,6 +1312,32 @@
 }
 
 /* ================================================================
+   DANGER CONFIRMATION DIALOG (удаление / деструктивные действия)
+   ================================================================ */
+
+.danger-dialog {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.80), 36, 0, 0, 14),
+                dropshadow(gaussian, rgba(239, 68, 68, 0.10), 60, 0, 0, 0);
+}
+
+.danger-dialog .button-bar .button.default-button {
+    -fx-background-color: #EF4444;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(239, 68, 68, 0.40), 8, 0, 0, 2);
+}
+
+.danger-dialog .button-bar .button.default-button:hover {
+    -fx-background-color: #DC2626;
+    -fx-effect: dropshadow(gaussian, rgba(239, 68, 68, 0.55), 12, 0, 0, 4);
+}
+
+.danger-dialog .button-bar .button.default-button:pressed {
+    -fx-background-color: #B91C1C;
+    -fx-effect: none;
+}
+
+/* ================================================================
    SPINNER (number stepper) — для будущих форм
    ================================================================ */
 

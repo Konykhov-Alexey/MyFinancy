@@ -345,16 +345,31 @@ public class TransactionController {
     // ------------------------------------------------------------------ delete
 
     private void confirmDelete(Transaction t) {
-        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+        ButtonType deleteType = new ButtonType("Удалить", ButtonBar.ButtonData.OK_DONE);
+        ButtonType cancelType = new ButtonType("Отмена", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        Alert confirm = new Alert(Alert.AlertType.NONE);
         confirm.setTitle("Удаление");
         confirm.setHeaderText("Удалить транзакцию?");
         confirm.setContentText(String.format("%s  %s  %s",
                 t.getDate().format(DATE_FMT),
                 CurrencyFormatter.format(t.getAmount()),
                 t.getCategory() != null ? t.getCategory().getName() : ""));
+        confirm.getButtonTypes().setAll(deleteType, cancelType);
+
+        Label icon = new Label("✕");
+        icon.setStyle(
+            "-fx-text-fill: #EF4444; -fx-font-size: 16px; -fx-font-weight: bold;" +
+            "-fx-background-color: rgba(239,68,68,0.12);" +
+            "-fx-background-radius: 8; -fx-padding: 7 11;"
+        );
+        confirm.setGraphic(icon);
+
         confirm.getDialogPane().getStylesheets().addAll(tableView.getScene().getStylesheets());
+        confirm.getDialogPane().getStyleClass().add("danger-dialog");
+
         confirm.showAndWait()
-               .filter(b -> b == ButtonType.OK)
+               .filter(b -> b == deleteType)
                .ifPresent(b -> { service.delete(t); refresh(); });
     }
 }

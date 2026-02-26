@@ -1,0 +1,3 @@
+[    8533ms] [ERROR] Failed to load resource: the server responded with a status of 500 () @ https://developers.raycast.com/api-reference/user-interface/alert:0
+[    9669ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://developers.raycast.com/favicon.ico:0
+[    9753ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://developers.raycast.com/_next/data/-FFUvWnFFzEA4fMcrceEb/api-reference/user-interface/alert.json:0

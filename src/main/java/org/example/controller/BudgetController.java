@@ -324,13 +324,28 @@ public class BudgetController {
     }
 
     private void confirmDeleteGroup(BudgetGroup group) {
-        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+        ButtonType deleteType = new ButtonType("Удалить", ButtonBar.ButtonData.OK_DONE);
+        ButtonType cancelType = new ButtonType("Отмена", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        Alert confirm = new Alert(Alert.AlertType.NONE);
         confirm.setTitle("Удалить группу");
         confirm.setHeaderText("Удалить группу «" + group.getName() + "»?");
         confirm.setContentText("Все категории этой группы будут отвязаны.");
+        confirm.getButtonTypes().setAll(deleteType, cancelType);
+
+        Label icon = new Label("✕");
+        icon.setStyle(
+            "-fx-text-fill: #EF4444; -fx-font-size: 16px; -fx-font-weight: bold;" +
+            "-fx-background-color: rgba(239,68,68,0.12);" +
+            "-fx-background-radius: 8; -fx-padding: 7 11;"
+        );
+        confirm.setGraphic(icon);
+
         styleAlert(confirm);
+        confirm.getDialogPane().getStyleClass().add("danger-dialog");
+
         confirm.showAndWait().ifPresent(btn -> {
-            if (btn == ButtonType.OK) {
+            if (btn == deleteType) {
                 service.deleteGroup(group);
                 refresh();
             }

@@ -8,6 +8,7 @@ import javafx.scene.layout.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.Tooltip;
+import javafx.util.Duration;
 import org.example.service.AnalyticsService;
 import org.example.service.AnalyticsService.*;
 import org.example.service.Analytics2Service;
@@ -299,7 +300,11 @@ public class AnalyticsController {
             if (hd.total().compareTo(BigDecimal.ZERO) > 0) {
                 tip += " — " + CurrencyFormatter.format(hd.total());
             }
-            Tooltip.install(cell, new Tooltip(tip));
+            Tooltip tooltip = new Tooltip(tip);
+            tooltip.setShowDelay(Duration.millis(100));
+            tooltip.setShowDuration(Duration.INDEFINITE);
+            tooltip.setHideDelay(Duration.millis(100));
+            Tooltip.install(cell, tooltip);
             grid.add(cell, col, row);
         }
 
