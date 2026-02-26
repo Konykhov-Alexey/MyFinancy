@@ -1,0 +1,3 @@
+[    2811ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://www.figma.com/favicon.ico:0
+[    6791ms] [WARNING] [file_browser.navigation_mark] You appear to be logging a relative timestamp and not an epoch timestamp. Try adding performance.timeOrigin to the timestamp. @ https://www.figma.com/webpack-artifacts/assets/community-8891046f772e2ade.min.js.br:1265
+[    7465ms] [WARNING] Specifying 'overflow: visible' on img, video and canvas tags may cause them to produce visual content outside of the element bounds. See https://github.com/WICG/view-transitions/blob/main/debugging_overflow_on_images.md for details. @ https://www.figma.com/community:0

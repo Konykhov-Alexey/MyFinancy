@@ -73,19 +73,23 @@ public class TransactionController {
         colDate.setCellFactory(col -> new TableCell<>() {
             @Override protected void updateItem(LocalDate d, boolean empty) {
                 super.updateItem(d, empty);
-                setText(empty || d == null ? null : d.format(DATE_FMT));
+                if (empty || d == null) { setText(null); setStyle(""); return; }
+                setText(d.format(DATE_FMT));
+                setStyle("-fx-font-family: 'JetBrains Mono'; -fx-font-size: 12px;");
             }
         });
 
         colType.setCellValueFactory(new PropertyValueFactory<>("type"));
         colType.setCellFactory(col -> new TableCell<>() {
+            private final javafx.scene.control.Label badge = new javafx.scene.control.Label();
             @Override protected void updateItem(TransactionType t, boolean empty) {
                 super.updateItem(t, empty);
-                if (empty || t == null) { setText(null); setStyle(""); return; }
-                setText(t == TransactionType.INCOME ? "Доход" : "Расход");
-                setStyle(t == TransactionType.INCOME
-                        ? "-fx-text-fill: #10B981; -fx-font-weight: bold;"
-                        : "-fx-text-fill: #F43F5E; -fx-font-weight: bold;");
+                if (empty || t == null) { setGraphic(null); return; }
+                badge.setText(t == TransactionType.INCOME ? "Доход" : "Расход");
+                badge.getStyleClass().setAll(
+                        t == TransactionType.INCOME ? "tx-badge-income" : "tx-badge-expense");
+                setGraphic(badge);
+                setText(null);
             }
         });
 
@@ -100,17 +104,28 @@ public class TransactionController {
                 super.updateItem(amount, empty);
                 if (empty || amount == null) { setText(null); setStyle(""); return; }
                 setText(CurrencyFormatter.format(amount));
+                setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
                 int idx = getIndex();
                 if (idx >= 0 && idx < getTableView().getItems().size()) {
                     TransactionType t = getTableView().getItems().get(idx).getType();
                     setStyle(t == TransactionType.INCOME
-                            ? "-fx-text-fill: #10B981; -fx-font-weight: bold;"
-                            : "-fx-text-fill: #F43F5E; -fx-font-weight: bold;");
+                            ? "-fx-text-fill: #10B981; -fx-font-family: 'JetBrains Mono'; -fx-font-weight: bold;"
+                            : "-fx-text-fill: #EF4444; -fx-font-family: 'JetBrains Mono'; -fx-font-weight: bold;");
                 }
             }
         });
 
         colComment.setCellValueFactory(new PropertyValueFactory<>("comment"));
+        colComment.setCellFactory(col -> new TableCell<>() {
+            @Override protected void updateItem(String comment, boolean empty) {
+                super.updateItem(comment, empty);
+                if (empty || comment == null || comment.isBlank()) {
+                    setText(null); setStyle(""); return;
+                }
+                setText(comment);
+                setStyle("-fx-text-fill: #6B7280;");
+            }
+        });
 
         colActions.setCellFactory(col -> new TableCell<>() {
             private final Button del = new Button("✕");

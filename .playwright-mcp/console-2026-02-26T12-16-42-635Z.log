@@ -1,0 +1,14 @@
+[     117ms] Error: Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+    at rK (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:45830)
+    at rX (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:46863)
+    at https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:140582
+    at sp (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:145743)
+    at sc (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:137083)
+    at https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:131912
+    at u9 (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:132013)
+    at sV (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:158395)
+    at MessagePort.O (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:7356)
+[     834ms] [WARNING] drb-video: No poster image set on video element @ https://cdn.dribbble.com/assets/vite/assets/index-0a740f53.js:1769
+[    1013ms] [WARNING] drb-video: No poster image set on video element @ https://cdn.dribbble.com/assets/vite/assets/index-0a740f53.js:1769
+[    3560ms] [ERROR] Not signed in with the identity provider. @ https://dribbble.com/shots/21651757-Date-Picker-Dark-UI-Kit:0
+[    6437ms] [ERROR] [GSI_LOGGER]: FedCM get() rejects with NetworkError: Error retrieving a token. @ https://accounts.google.com/gsi/client:81

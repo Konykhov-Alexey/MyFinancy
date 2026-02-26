@@ -1,0 +1,2 @@
+[    7602ms] [ERROR] Not signed in with the identity provider. @ https://dribbble.com/search/dark-transaction-list-fintech:0
+[   15955ms] [ERROR] [GSI_LOGGER]: FedCM get() rejects with NetworkError: Error retrieving a token. @ https://accounts.google.com/gsi/client:81

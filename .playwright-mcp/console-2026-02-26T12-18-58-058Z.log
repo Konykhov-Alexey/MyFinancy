@@ -1,0 +1,77 @@
+[    5184ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://github.com/mkpaz/atlantafx/blob/master/styles/src/components/date-picker.scss:0
+[    6418ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://raw.githubusercontent.com/mkpaz/atlantafx/master/styles/src/settings/color-scale.scss:0
+[    7451ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://raw.githubusercontent.com/mkpaz/atlantafx/master/styles/src/components/date-picker.scss:0
+[  350098ms] [WARNING] [tiptap warn]: Duplicate extension names found: ['textStyle']. This can lead to issues. @ https://esm.sh/@tiptap/core@2.6.6/es2022/core.mjs:2
+[  350166ms] [WARNING] [tiptap warn]: Duplicate extension names found: ['textStyle']. This can lead to issues. @ https://esm.sh/@tiptap/core@2.6.6/es2022/core.mjs:2
+[  350474ms] TypeError: Cannot read properties of null (reading 'addEventListener')
+    at about:srcdoc:110:49
+[  350477ms] TypeError: Cannot read properties of null (reading 'addEventListener')
+    at about:srcdoc:109:49
+[  350334ms] [WARNING] [tiptap warn]: Duplicate extension names found: ['tableCell']. This can lead to issues. @ https://esm.sh/@tiptap/core@2.6.6/es2022/core.mjs:2
+[  350478ms] TypeError: Cannot read properties of null (reading 'addEventListener')
+    at about:srcdoc:373:52
+[  416690ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://raw.githubusercontent.com/mkpaz/atlantafx/master/styles/src/themes/primer-dark.scss:0
+[  417713ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://www.tremor.so/ui/components/date-picker:0
+[  422290ms] [WARNING] drb-video: No poster image set on video element @ https://cdn.dribbble.com/assets/vite/assets/index-0a740f53.js:1769
+[  422473ms] [WARNING] drb-video: No poster image set on video element @ https://cdn.dribbble.com/assets/vite/assets/index-0a740f53.js:1769
+[  424399ms] [ERROR] Not signed in with the identity provider. @ https://dribbble.com/shots/21651757-Date-Picker-Dark-UI-Kit:0
+[  427815ms] [ERROR] [GSI_LOGGER]: FedCM get() rejects with NetworkError: Error retrieving a token. @ https://accounts.google.com/gsi/client:81
+[  435505ms] [ERROR] Not signed in with the identity provider. @ https://dribbble.com/:0
+[  446580ms] [WARNING] drb-video: No poster image set on video element @ https://cdn.dribbble.com/assets/vite/assets/index-0a740f53.js:1769
+[  446965ms] [WARNING] drb-video: No poster image set on video element @ https://cdn.dribbble.com/assets/vite/assets/index-0a740f53.js:1769
+[  452016ms] [ERROR] [GSI_LOGGER]: FedCM get() rejects with NetworkError: Error retrieving a token. @ https://accounts.google.com/gsi/client:81
+[ 1346978ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://dribbble.com/screenshot_boost?request_source=Similar+Work&served_shot_ids%5B%5D=26946375&served_shot_ids%5B%5D=26408113&served_shot_ids%5B%5D=25623061&served_shot_ids%5B%5D=25765472&served_shot_ids%5B%5D=27019482&served_shot_ids%5B%5D=25583168&similar_to_shot_id=27127868:0
+[ 1419452ms] [WARNING] drb-video: No poster image set on video element @ https://cdn.dribbble.com/assets/vite/assets/index-0a740f53.js:1769
+[ 1419684ms] [WARNING] drb-video: No poster image set on video element @ https://cdn.dribbble.com/assets/vite/assets/index-0a740f53.js:1769
+[ 1421308ms] Error: Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+    at rK (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:45830)
+    at rX (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:46863)
+    at https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:140582
+    at sp (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:145743)
+    at sc (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:137083)
+    at https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:131912
+    at u9 (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:132013)
+    at sV (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:158395)
+    at MessagePort.O (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:7356)
+[ 1429013ms] [WARNING] The resource https://avatar.vercel.sh/shadcn1 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://ui.shadcn.com/docs/components/radix/date-picker:0
+[ 1429013ms] [WARNING] The resource https://v0.app/chat-static/button.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://ui.shadcn.com/docs/components/radix/date-picker:0
+[ 1429013ms] [WARNING] The resource https://ui.shadcn.com/placeholder.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://ui.shadcn.com/docs/components/radix/date-picker:0
+[ 1430490ms] [ERROR] Not signed in with the identity provider. @ https://dribbble.com/shots/20743143-dark-date-picker:0
+[ 1432869ms] [ERROR] [GSI_LOGGER]: FedCM get() rejects with NetworkError: Error retrieving a token. @ https://accounts.google.com/gsi/client:81
+[ 1436806ms] Error: Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+    at rK (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:45830)
+    at rX (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:46863)
+    at https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:140582
+    at sp (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:145743)
+    at sc (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:137083)
+    at https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:131912
+    at u9 (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:132013)
+    at sV (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:158395)
+    at MessagePort.O (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:7356)
+[ 1438891ms] [ERROR] Not signed in with the identity provider. @ https://dribbble.com/search/dark-datepicker:0
+[ 1451317ms] Error: Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+    at rK (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:45830)
+    at rX (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:46863)
+    at https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:140582
+    at sp (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:145743)
+    at sc (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:137083)
+    at https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:131912
+    at u9 (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:132013)
+    at sV (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:158395)
+    at MessagePort.O (https://ui.shadcn.com/_next/static/chunks/f30d1db8674a3929.js?dpl=dpl_Ca1cB4gnznpLr3BX25KiZwXhsKi4:1:7356)
+[ 1462915ms] [WARNING] The resource https://avatar.vercel.sh/shadcn1 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://ui.shadcn.com/docs/components/radix/calendar:0
+[ 1462915ms] [WARNING] The resource https://v0.app/chat-static/button.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://ui.shadcn.com/docs/components/radix/calendar:0
+[ 1462915ms] [WARNING] The resource https://ui.shadcn.com/placeholder.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://ui.shadcn.com/docs/components/radix/calendar:0
+[ 1491499ms] [ERROR] Not signed in with the identity provider. @ https://dribbble.com/search/dark-datepicker:0
+[ 1494480ms] [ERROR] [GSI_LOGGER]: FedCM get() rejects with NetworkError: Error retrieving a token. @ https://accounts.google.com/gsi/client:81
+[ 1532230ms] [ERROR] Not signed in with the identity provider. @ https://dribbble.com/search/dark-data-table:0
+[ 1532554ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://dribbble.com/screenshot_boost?render_in_list=true&original_params=%7B%22format%22:%22html%22,%22controller%22:%22searches%22,%22action%22:%22show%22,%22keyword%22:%22dark-data-table%22%7D&request_source=Search+Feed&number_of_boosts=6&current_page=1:0
+[ 1533595ms] [ERROR] [GSI_LOGGER]: FedCM get() rejects with NetworkError: Error retrieving a token. @ https://accounts.google.com/gsi/client:81
+[ 1590533ms] [ERROR] Not signed in with the identity provider. @ https://dribbble.com/designers/dark-data-table:0
+[ 1592272ms] [ERROR] [GSI_LOGGER]: FedCM get() rejects with AbortError: signal is aborted without reason @ https://accounts.google.com/gsi/client:81
+[ 1598211ms] [ERROR] Not signed in with the identity provider. @ https://dribbble.com/services/search/dark-data-table:0
+[ 1600643ms] [ERROR] [GSI_LOGGER]: FedCM get() rejects with NetworkError: Error retrieving a token. @ https://accounts.google.com/gsi/client:81
+[ 1624894ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://dribbble.com/screenshot_boost?render_in_list=true&original_params=%7B%22format%22:%22html%22,%22controller%22:%22searches%22,%22action%22:%22show%22,%22keyword%22:%22dark-data-table%22%7D&request_source=Search+Feed&number_of_boosts=6&current_page=1:0
+[ 1624988ms] [ERROR] Not signed in with the identity provider. @ https://dribbble.com/search/dark-data-table:0
+[ 1626231ms] [ERROR] Not signed in with the identity provider. @ https://dribbble.com/search/dark-datepicker:0
+[ 1635601ms] [ERROR] [GSI_LOGGER]: FedCM get() rejects with NetworkError: Error retrieving a token. @ https://accounts.google.com/gsi/client:81

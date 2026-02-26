@@ -546,14 +546,14 @@
 /* ── Заголовок ── */
 
 .table-view .column-header-background {
-    -fx-background-color: #0F0F13;
+    -fx-background-color: #0D0D11;
     -fx-background-radius: 10 10 0 0;
     -fx-border-color: transparent transparent #2A2A30 transparent;
     -fx-border-width: 0 0 1 0;
 }
 
 .table-view .column-header-background .filler {
-    -fx-background-color: #0F0F13;
+    -fx-background-color: #0D0D11;
     -fx-border-color: transparent transparent #2A2A30 transparent;
     -fx-border-width: 0 0 1 0;
 }
@@ -566,15 +566,16 @@
 }
 
 .table-view .column-header .label {
-    -fx-text-fill: #6B7280;
+    -fx-text-fill: #4B5563;
+    -fx-font-family: "JetBrains Mono";
     -fx-font-weight: bold;
-    -fx-font-size: 11px;
+    -fx-font-size: 10px;
     -fx-alignment: CENTER_LEFT;
-    -fx-letter-spacing: 0.5;
+    -fx-letter-spacing: 0.8;
 }
 
 .table-view .column-header:hover {
-    -fx-background-color: rgba(255,255,255,0.02);
+    -fx-background-color: rgba(255,255,255,0.04);
     -fx-cursor: hand;
 }
 
@@ -611,36 +612,38 @@
 /* ── Строки данных ── */
 
 .table-row-cell {
-    -fx-border-color: transparent;
-    -fx-table-cell-border-color: transparent;
     -fx-background-color: transparent;
-    -fx-cell-size: 46px;
-    transition: -fx-background-color 80ms ease;
+    -fx-border-color: transparent transparent #1C1C23 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-table-cell-border-color: transparent;
+    -fx-cell-size: 48px;
 }
 
-.table-row-cell .text { -fx-fill: #9CA3AF; }
+.table-row-cell .text { -fx-fill: #E5E7EB; }
 
-.table-row-cell:odd  { -fx-background-color: #151518; }
-.table-row-cell:even { -fx-background-color: #0F0F13; }
-.table-row-cell:hover { -fx-background-color: #161622; }
+.table-row-cell:odd,
+.table-row-cell:even {
+    -fx-background-color: transparent;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: rgba(16, 185, 129, 0.05);
+    -fx-border-color: transparent transparent #1C1C23 #10B981;
+    -fx-border-width: 0 0 1 3;
+}
 
 .table-row-cell:selected {
-    -fx-background-color: rgba(16, 185, 129, 0.09);
+    -fx-background-color: rgba(16, 185, 129, 0.10);
+    -fx-border-color: transparent transparent #1C1C23 #10B981;
+    -fx-border-width: 0 0 1 3;
 }
+
 .table-row-cell:selected .text { -fx-fill: #FFFFFF; }
 
 .table-view:focused .table-row-cell:selected {
-    -fx-background-color: rgba(16, 185, 129, 0.13);
-}
-
-/* Строки с разделителями */
-.table-row-cell:odd {
-    -fx-border-color: transparent transparent #16161C transparent;
-    -fx-border-width: 0 0 1 0;
-}
-.table-row-cell:even {
-    -fx-border-color: transparent transparent #16161C transparent;
-    -fx-border-width: 0 0 1 0;
+    -fx-background-color: rgba(16, 185, 129, 0.14);
+    -fx-border-color: transparent transparent #1C1C23 #10B981;
+    -fx-border-width: 0 0 1 3;
 }
 
 /* ── Ячейки ── */
@@ -655,6 +658,28 @@
 .table-cell:focused {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
+}
+
+/* ── Бейджи типа транзакции ── */
+
+.tx-badge-income {
+    -fx-background-color: rgba(16, 185, 129, 0.12);
+    -fx-text-fill: #10B981;
+    -fx-font-family: "JetBrains Mono";
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 3 8 3 8;
+    -fx-background-radius: 4;
+}
+
+.tx-badge-expense {
+    -fx-background-color: rgba(239, 68, 68, 0.12);
+    -fx-text-fill: #EF4444;
+    -fx-font-family: "JetBrains Mono";
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 3 8 3 8;
+    -fx-background-radius: 4;
 }
 
 /* ── Пустая таблица ── */
@@ -1014,7 +1039,7 @@
 }
 
 .date-picker:hover {
-    -fx-border-color: #2E2E40;
+    -fx-border-color: #3A3A48;
 }
 
 .date-picker:focused {
@@ -1024,14 +1049,13 @@
 
 .date-picker .text-field {
     -fx-background-color: transparent;
-    -fx-text-fill: #9CA3AF;
+    -fx-text-fill: #E5E7EB;
     -fx-border-color: transparent;
     -fx-border-width: 0;
-    -fx-border-radius: 8 0 0 8;
     -fx-background-radius: 8 0 0 8;
     -fx-padding: 9 10 9 14;
     -fx-font-size: 13px;
-    -fx-prompt-text-fill: #3E3E58;
+    -fx-prompt-text-fill: #4B5563;
     -fx-highlight-fill: rgba(16, 185, 129, 0.25);
 }
 
@@ -1050,16 +1074,16 @@
 }
 
 .date-picker .arrow-button:hover {
-    -fx-background-color: rgba(16, 185, 129, 0.08);
+    -fx-background-color: rgba(16, 185, 129, 0.10);
 }
 
 .date-picker .arrow-button .arrow {
     -fx-background-color: #6B7280;
-    -fx-padding: 3.5;
+    -fx-padding: 3;
 }
 
 .date-picker:hover .arrow-button .arrow {
-    -fx-background-color: #8080A0;
+    -fx-background-color: #9CA3AF;
 }
 
 .date-picker:focused .arrow-button .arrow {
@@ -1071,181 +1095,191 @@
    ================================================================ */
 
 .date-picker-popup {
-    -fx-background-color: #13131A;
-    -fx-border-color: #2A2A30;
+    -fx-background-color: #111115;
+    -fx-border-color: #252530;
     -fx-border-width: 1;
-    -fx-border-radius: 14;
-    -fx-background-radius: 14;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 28, 0, 0, 10);
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.85), 36, 0, 0, 14);
     -fx-padding: 0;
 }
 
-/* Шапка с месяцем/годом */
+/* ── Шапка: месяц / год ─────────────────────────────────────── */
+
+.date-picker-popup .month-year-pane,
 .date-picker-popup > * > .month-year-pane {
-    -fx-background-color: #0F0F14;
-    -fx-padding: 14 12 10 12;
-    -fx-border-color: transparent transparent #1E1E28 transparent;
+    -fx-background-color: #0C0C10;
+    -fx-padding: 14 14 12 14;
+    -fx-border-color: transparent transparent #1C1C24 transparent;
     -fx-border-width: 0 0 1 0;
-    -fx-background-radius: 14 14 0 0;
+    -fx-background-radius: 12 12 0 0;
+    -fx-alignment: CENTER;
 }
 
-.date-picker-popup > * > .month-year-pane .month-year-label {
+/* Два варианта селектора: .month-year-label (нестандартный) и .spinner > .label (стандартный JavaFX) */
+.date-picker-popup .month-year-pane .month-year-label,
+.date-picker-popup > * > .month-year-pane .month-year-label,
+.date-picker-popup .month-year-pane .spinner > .label,
+.date-picker-popup > * > .month-year-pane .spinner > .label {
     -fx-text-fill: #FFFFFF;
-    -fx-font-size: 13px;
+    -fx-font-family: "JetBrains Mono";
+    -fx-font-size: 12px;
     -fx-font-weight: bold;
 }
 
-/* Кнопки «‹» и «›» */
+/* ── Кнопки ‹ › ─────────────────────────────────────────────── */
+
+.date-picker-popup .month-year-pane .spinner,
 .date-picker-popup > * > .month-year-pane .spinner {
     -fx-alignment: CENTER;
 }
 
+.date-picker-popup .month-year-pane .spinner .button,
 .date-picker-popup > * > .month-year-pane .spinner .button {
     -fx-background-color: transparent;
-    -fx-padding: 6 10;
+    -fx-padding: 7 11;
     -fx-cursor: hand;
-    -fx-background-radius: 6;
+    -fx-background-radius: 8;
     -fx-border-color: transparent;
 }
 
+.date-picker-popup .month-year-pane .spinner .button:hover,
 .date-picker-popup > * > .month-year-pane .spinner .button:hover {
     -fx-background-color: rgba(16, 185, 129, 0.12);
 }
 
+.date-picker-popup .month-year-pane .spinner .button:pressed,
 .date-picker-popup > * > .month-year-pane .spinner .button:pressed {
     -fx-background-color: rgba(16, 185, 129, 0.22);
 }
 
+.date-picker-popup .month-year-pane .spinner .button .left-arrow,
 .date-picker-popup > * > .month-year-pane .spinner .button .left-arrow {
-    -fx-background-color: #10B981;
-    -fx-padding: 4;
+    -fx-background-color: #6B7280;
+    -fx-padding: 3.5;
 }
 
+.date-picker-popup .month-year-pane .spinner .button .right-arrow,
 .date-picker-popup > * > .month-year-pane .spinner .button .right-arrow {
-    -fx-background-color: #10B981;
-    -fx-padding: 4;
+    -fx-background-color: #6B7280;
+    -fx-padding: 3.5;
 }
 
-/* Сетка календаря */
+/* ── Сетка календаря ────────────────────────────────────────── */
+
+.date-picker-popup .calendar-grid,
 .date-picker-popup > * > .calendar-grid {
-    -fx-background-color: #13131A;
-    -fx-padding: 8 12 12 12;
+    -fx-background-color: #111115;
+    -fx-padding: 10 14 14 14;
     -fx-hgap: 2;
     -fx-vgap: 2;
-    -fx-background-radius: 0 0 14 14;
+    -fx-background-radius: 0 0 12 12;
 }
 
-/* Имена дней недели (Пн Вт Ср...) */
+/* ── Заголовки дней (Пн Вт ...) ─────────────────────────────── */
+
 .date-picker-popup .day-name-cell {
-    -fx-text-fill: #4B5563;
-    -fx-font-size: 10px;
+    -fx-text-fill: #6B7280;
+    -fx-font-family: "JetBrains Mono";
+    -fx-font-size: 9px;
     -fx-font-weight: bold;
     -fx-alignment: CENTER;
-    -fx-padding: 6 0;
-    -fx-pref-width: 34;
-    -fx-min-width: 34;
-    -fx-letter-spacing: 0.5;
+    -fx-padding: 6 0 4 0;
+    -fx-pref-width: 36;
+    -fx-min-width: 36;
 }
 
-/* Ячейка с номером недели */
+/* ── Номера недель ───────────────────────────────────────────── */
+
 .date-picker-popup .week-number-cell {
-    -fx-text-fill: #374151;
-    -fx-font-size: 10px;
+    -fx-text-fill: #2A2A38;
+    -fx-font-size: 9px;
     -fx-alignment: CENTER;
     -fx-padding: 4;
     -fx-pref-width: 24;
     -fx-min-width: 24;
 }
 
-/* Обычный день */
+/* ── Обычный день — КРУГЛАЯ ячейка ──────────────────────────── */
+
 .date-picker-popup .day-cell {
     -fx-background-color: transparent;
-    -fx-text-fill: #9CA3AF;
-    -fx-font-size: 13px;
+    -fx-text-fill: #E5E7EB;
+    -fx-font-size: 12px;
     -fx-alignment: CENTER;
     -fx-padding: 0;
-    -fx-pref-width: 34;
-    -fx-min-width: 34;
-    -fx-pref-height: 34;
-    -fx-min-height: 34;
+    -fx-pref-width: 36;
+    -fx-min-width: 36;
+    -fx-pref-height: 36;
+    -fx-min-height: 36;
     -fx-cursor: hand;
-    -fx-background-radius: 8;
+    -fx-background-radius: 18;
 }
 
 .date-picker-popup .day-cell:hover {
     -fx-background-color: rgba(16, 185, 129, 0.12);
-    -fx-text-fill: #FFFFFF;
-    -fx-background-radius: 8;
+    -fx-text-fill: #E5E7EB;
+    -fx-background-radius: 18;
 }
 
-.date-picker-popup .day-cell.weekend {
-    -fx-text-fill: #F87171;
-}
+/* ── Сегодня — только кольцо, без заливки ───────────────────── */
 
-.date-picker-popup .day-cell.weekend:hover {
-    -fx-text-fill: #EF4444;
-}
-
-/* Сегодня */
 .date-picker-popup .day-cell.today {
-    -fx-background-color: rgba(16, 185, 129, 0.12);
+    -fx-background-color: transparent;
     -fx-border-color: #10B981;
-    -fx-border-width: 1;
-    -fx-border-radius: 8;
-    -fx-background-radius: 8;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 18;
+    -fx-background-radius: 18;
     -fx-text-fill: #10B981;
     -fx-font-weight: bold;
 }
 
 .date-picker-popup .day-cell.today:hover {
-    -fx-background-color: rgba(16, 185, 129, 0.22);
+    -fx-background-color: rgba(16, 185, 129, 0.12);
 }
 
-/* Выбранный день */
+/* ── Выбранный день — зелёный круг ──────────────────────────── */
+
 .date-picker-popup .day-cell:selected,
 .date-picker-popup .day-cell.selected {
     -fx-background-color: #10B981;
     -fx-text-fill: #FFFFFF;
-    -fx-font-weight: bold;
-    -fx-background-radius: 8;
+    -fx-background-radius: 18;
     -fx-border-color: transparent;
     -fx-border-width: 0;
-    -fx-effect: dropshadow(gaussian, rgba(16, 185, 129, 0.45), 8, 0, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(16, 185, 129, 0.45), 10, 0.2, 0, 2);
 }
 
 .date-picker-popup .day-cell:selected:hover,
 .date-picker-popup .day-cell.selected:hover {
     -fx-background-color: #0EA272;
-    -fx-background-radius: 8;
-    -fx-effect: dropshadow(gaussian, rgba(16, 185, 129, 0.55), 10, 0, 0, 0);
+    -fx-background-radius: 18;
+    -fx-effect: dropshadow(gaussian, rgba(16, 185, 129, 0.55), 12, 0.2, 0, 2);
 }
 
-.date-picker-popup .day-cell.selected.weekend,
-.date-picker-popup .day-cell:selected.weekend {
-    -fx-text-fill: #FFFFFF;
-}
+/* ── Дни другого месяца — почти невидимы ────────────────────── */
 
-/* Дни другого месяца */
 .date-picker-popup .day-cell.previous-month,
 .date-picker-popup .day-cell.next-month {
-    -fx-text-fill: #374151;
+    -fx-text-fill: #2E3340;
     -fx-cursor: default;
 }
 
 .date-picker-popup .day-cell.previous-month:hover,
 .date-picker-popup .day-cell.next-month:hover {
     -fx-background-color: transparent;
-    -fx-text-fill: #374151;
+    -fx-text-fill: #2E3340;
 }
 
-/* Сегодня + выбран */
+/* ── Сегодня + выбран ───────────────────────────────────────── */
+
 .date-picker-popup .day-cell.today.selected,
 .date-picker-popup .day-cell.today:selected {
     -fx-background-color: #10B981;
     -fx-text-fill: #FFFFFF;
     -fx-border-color: transparent;
     -fx-border-width: 0;
-    -fx-effect: dropshadow(gaussian, rgba(16, 185, 129, 0.45), 8, 0, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(16, 185, 129, 0.50), 10, 0.2, 0, 2);
 }
 
 /* ================================================================
