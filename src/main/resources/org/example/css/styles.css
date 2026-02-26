@@ -2210,3 +2210,83 @@
     -fx-background-color: rgba(239,68,68,0.15);
     -fx-text-fill: #EF4444;
 }
+
+/* ══════════════════════════════════════════════════════════════
+   ANALYTICS 2.0 — Phase 9
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Heatmap ─────────────────────────────────────────────────── */
+
+.heatmap-day-label {
+    -fx-font-family: "JetBrains Mono", monospace;
+    -fx-font-size: 10px;
+    -fx-text-fill: #6B7280;
+    -fx-alignment: center;
+    -fx-pref-width: 28;
+}
+
+.heatmap-cell {
+    -fx-pref-width: 28;
+    -fx-pref-height: 28;
+    -fx-min-width: 28;
+    -fx-min-height: 28;
+    -fx-max-width: 28;
+    -fx-max-height: 28;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+
+.heatmap-intensity-0 { -fx-background-color: #1C1C20; }
+.heatmap-intensity-1 { -fx-background-color: #0D3D2A; }
+.heatmap-intensity-2 { -fx-background-color: #0A5C3A; }
+.heatmap-intensity-3 { -fx-background-color: #0D7A4A; }
+.heatmap-intensity-4 { -fx-background-color: #10B981; }
+
+/* ── Forecast ────────────────────────────────────────────────── */
+
+.forecast-value {
+    -fx-font-family: "JetBrains Mono", monospace;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+}
+
+.forecast-ok     { -fx-text-fill: #10B981; -fx-background-color: rgba(16,185,129,0.12); }
+.forecast-warn   { -fx-text-fill: #F59E0B; -fx-background-color: rgba(245,158,11,0.12); }
+.forecast-danger { -fx-text-fill: #EF4444; -fx-background-color: rgba(239,68,68,0.12); }
+
+.forecast-meta {
+    -fx-font-size: 12px;
+    -fx-text-fill: #9CA3AF;
+}
+
+/* ── Anomalies ───────────────────────────────────────────────── */
+
+.anomaly-row {
+    -fx-border-color: transparent transparent #1C1C24 transparent;
+    -fx-border-width: 1;
+    -fx-padding: 8 0 8 0;
+}
+
+.anomaly-badge {
+    -fx-font-family: "JetBrains Mono", monospace;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 2 8 2 8;
+    -fx-background-radius: 6;
+}
+
+.anomaly-badge-high {
+    -fx-background-color: rgba(239,68,68,0.15);
+    -fx-text-fill: #EF4444;
+}
+
+.anomaly-cat-name {
+    -fx-font-size: 13px;
+    -fx-text-fill: #FFFFFF;
+}
+
+.anomaly-meta {
+    -fx-font-size: 11px;
+    -fx-text-fill: #6B7280;
+}
