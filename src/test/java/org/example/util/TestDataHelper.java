@@ -27,7 +27,6 @@ public class TestDataHelper {
             Category c = new Category();
             c.setName(name);
             c.setType(CategoryType.EXPENSE);
-            c.setIcon("F111");
             s.persist(c);
             tx.commit();
             return c;
