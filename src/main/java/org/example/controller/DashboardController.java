@@ -6,7 +6,11 @@ import javafx.scene.chart.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Arc;
+import javafx.scene.shape.ArcType;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.StrokeLineCap;
 import org.example.model.entity.SavingsGoal;
 import org.example.model.entity.Transaction;
 import org.example.model.enums.TransactionType;
@@ -28,7 +32,12 @@ public class DashboardController {
 
     private static final DateTimeFormatter DATE_FMT = DateTimeFormatter.ofPattern("dd.MM.yy");
 
-    // ── FXML nodes ───────────────────────────────────────────────────
+    private static final String[] DONUT_COLORS = {
+        "#F472B6", "#FF9500", "#FFD60A", "#30D158",
+        "#0A84FF", "#5E5CE6", "#BF5AF2", "#FF6B35"
+    };
+
+    //FXML nodes
     @FXML private Label monthLabel;
     @FXML private Label balanceValue;
     @FXML private Label incomeValue;
@@ -43,8 +52,6 @@ public class DashboardController {
     @FXML private HBox goalsRow;
 
     private DashboardService service;
-
-    // ── Lifecycle ────────────────────────────────────────────────────
 
     @FXML
     public void initialize() {
@@ -67,8 +74,6 @@ public class DashboardController {
         updateGoalsMini();
     }
 
-    // ── Metrics ──────────────────────────────────────────────────────
-
     private void updateMetrics() {
         MonthStats stats = service.getMonthStats();
         BigDecimal balance = stats.balance();
@@ -83,7 +88,6 @@ public class DashboardController {
         goalsCountValue.setText(String.valueOf(service.countActiveGoals()));
     }
 
-    // ── LineChart ────────────────────────────────────────────────────
 
     private void updateLineChart() {
         lineChartBox.getChildren().clear();
@@ -137,8 +141,6 @@ public class DashboardController {
         lineChartBox.getChildren().add(chart);
     }
 
-    // ── PieChart ─────────────────────────────────────────────────────
-
     private void updatePieChart() {
         pieChartBox.getChildren().clear();
 
@@ -152,55 +154,97 @@ public class DashboardController {
                 .map(CategoryAmount::amount)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
 
-        PieChart chart = new PieChart();
-        chart.setAnimated(false);
-        chart.setLegendVisible(true);
-        chart.setLabelsVisible(false);
-        chart.setStartAngle(90);
-        chart.getStyleClass().add("dash-pie-chart");
-        chart.setMaxWidth(Double.MAX_VALUE);
-        chart.setMaxHeight(Double.MAX_VALUE);
+        double totalVal = total.doubleValue();
+        double[] values = cats.stream()
+                .mapToDouble(ca -> ca.amount().doubleValue()).toArray();
 
-        cats.forEach(ca -> chart.getData().add(
-                new PieChart.Data(ca.name(), ca.amount().doubleValue())));
+        // Arc pane: arcs are drawn here with absolute coordinates
+        Pane arcPane = new Pane();
+        arcPane.setMaxWidth(Double.MAX_VALUE);
+        arcPane.setMaxHeight(Double.MAX_VALUE);
+        VBox.setVgrow(arcPane, Priority.ALWAYS);
 
-        // Donut hole
-        Circle hole = new Circle(0);
-        hole.getStyleClass().add("pie-donut-hole");
-        hole.setMouseTransparent(true);
-
-        // Center label
-        VBox centerInfo = new VBox(1);
-        centerInfo.setAlignment(Pos.CENTER);
-        centerInfo.setMouseTransparent(true);
+        // Center labels
         Label amountLabel = new Label(CurrencyFormatter.format(total));
         amountLabel.getStyleClass().add("pie-center-amount");
+        amountLabel.setMouseTransparent(true);
+
         Label captionLabel = new Label("расходы");
         captionLabel.getStyleClass().add("pie-center-caption");
-        centerInfo.getChildren().addAll(amountLabel, captionLabel);
+        captionLabel.setMouseTransparent(true);
 
-        StackPane wrapper = new StackPane(chart, hole, centerInfo);
-        VBox.setVgrow(wrapper, Priority.ALWAYS);
-        wrapper.setMaxHeight(Double.MAX_VALUE);
+        VBox centerInfo = new VBox(2, amountLabel, captionLabel);
+        centerInfo.setAlignment(Pos.CENTER);
+        centerInfo.setMouseTransparent(true);
 
-        wrapper.widthProperty().addListener((obs, old, w) ->
-                positionDonut(hole, centerInfo, w.doubleValue(), wrapper.getHeight()));
-        wrapper.heightProperty().addListener((obs, old, h) ->
-                positionDonut(hole, centerInfo, wrapper.getWidth(), h.doubleValue()));
+        StackPane donutStack = new StackPane(arcPane, centerInfo);
+        VBox.setVgrow(donutStack, Priority.ALWAYS);
+        donutStack.setMaxHeight(Double.MAX_VALUE);
+        donutStack.setMinHeight(160);
 
-        pieChartBox.getChildren().add(wrapper);
+        donutStack.widthProperty().addListener((obs, old, w) ->
+                drawDonutArcs(arcPane, values, totalVal, w.doubleValue(), donutStack.getHeight()));
+        donutStack.heightProperty().addListener((obs, old, h) ->
+                drawDonutArcs(arcPane, values, totalVal, donutStack.getWidth(), h.doubleValue()));
+
+        // Custom legend
+        FlowPane legend = new FlowPane(10, 6);
+        legend.setAlignment(Pos.CENTER);
+        for (int i = 0; i < cats.size(); i++) {
+            HBox item = new HBox(6);
+            item.setAlignment(Pos.CENTER_LEFT);
+            Circle dot = new Circle(5, Color.web(DONUT_COLORS[i % DONUT_COLORS.length]));
+            Label name = new Label(cats.get(i).name());
+            name.getStyleClass().add("dash-pie-legend-label");
+            item.getChildren().addAll(dot, name);
+            legend.getChildren().add(item);
+        }
+
+        VBox container = new VBox(8, donutStack, legend);
+        VBox.setVgrow(container, Priority.ALWAYS);
+        container.setMaxHeight(Double.MAX_VALUE);
+
+        pieChartBox.getChildren().add(container);
     }
 
-    private void positionDonut(Circle hole, VBox centerInfo, double w, double h) {
+    private void drawDonutArcs(Pane arcPane, double[] values, double total,
+                                double w, double h) {
         if (w < 10 || h < 10) return;
-        double legendH  = h * 0.22;
-        double pieAreaH = h - legendH;
-        double pieR     = Math.min(w * 0.88, pieAreaH * 0.88) / 2.0;
-        double holeR    = pieR * 0.38;
-        double dy       = -(legendH / 2.0);
-        hole.setRadius(holeR);
-        hole.setTranslateY(dy);
-        centerInfo.setTranslateY(dy);
+        arcPane.getChildren().clear();
+
+        double size   = Math.min(w, h);
+        double cx     = w / 2.0;
+        double cy     = h / 2.0;
+        double outerR = size * 0.44;
+        double innerR = outerR * 0.60;
+        double midR   = (outerR + innerR) / 2.0;
+        double ringW  = outerR - innerR;
+        double gap    = values.length > 1 ? 1.5 : 0.0;
+
+        double startAngle = 90.0;
+
+        for (int i = 0; i < values.length; i++) {
+            double sweep  = (values[i] / total) * 360.0;
+            double actual = sweep - gap;
+            if (actual < 0.5) { startAngle -= sweep; continue; }
+
+            Arc arc = new Arc();
+            arc.setCenterX(cx);
+            arc.setCenterY(cy);
+            arc.setRadiusX(midR);
+            arc.setRadiusY(midR);
+            arc.setStartAngle(startAngle - gap / 2.0);
+            arc.setLength(-actual);
+            arc.setType(ArcType.OPEN);
+            arc.setFill(Color.TRANSPARENT);
+            arc.setStroke(Color.web(DONUT_COLORS[i % DONUT_COLORS.length]));
+            arc.setStrokeWidth(ringW);
+            arc.setStrokeLineCap(StrokeLineCap.BUTT);
+            arc.setSmooth(true);
+
+            arcPane.getChildren().add(arc);
+            startAngle -= sweep;
+        }
     }
 
     // ── Top Categories ───────────────────────────────────────────────

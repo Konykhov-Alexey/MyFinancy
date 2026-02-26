@@ -53,8 +53,6 @@ public class GoalController {
         refresh();
     }
 
-    // ------------------------------------------------------------------ refresh
-
     private void refresh() {
         GoalSort sort = sortCombo.getValue() != null ? sortCombo.getValue() : GoalSort.BY_DEADLINE;
         List<SavingsGoal> goals = service.getAll(sort);
@@ -66,15 +64,13 @@ public class GoalController {
         }
     }
 
-    // ------------------------------------------------------------------ card
-
     private VBox buildCard(SavingsGoal goal) {
         VBox card = new VBox(14);
         card.getStyleClass().add("goal-card");
         card.setPrefWidth(CARD_WIDTH);
         card.setMaxWidth(CARD_WIDTH);
 
-        // ── Статус-бейдж + меню ──
+        // Статус
         HBox topRow = new HBox(8);
         topRow.setAlignment(Pos.CENTER_LEFT);
         Label badge = buildStatusBadge(goal.getStatus());
@@ -82,12 +78,12 @@ public class GoalController {
         HBox.setHgrow(spacer, Priority.ALWAYS);
         topRow.getChildren().addAll(badge, spacer);
 
-        // ── Название ──
+        // Название
         Label nameLabel = new Label(goal.getName());
         nameLabel.getStyleClass().add("goal-card-title");
         nameLabel.setWrapText(true);
 
-        // ── Описание (если есть) ──
+        // Описание (если есть)
         if (goal.getDescription() != null && !goal.getDescription().isBlank()) {
             Label desc = new Label(goal.getDescription());
             desc.getStyleClass().add("goal-card-desc");
@@ -97,7 +93,7 @@ public class GoalController {
             card.getChildren().addAll(topRow, nameLabel);
         }
 
-        // ── Прогресс-бар ──
+        // Прогресс-бар
         double ratio = computeRatio(goal);
         ProgressBar bar = new ProgressBar(Math.min(ratio, 1.0));
         bar.setMaxWidth(Double.MAX_VALUE);
@@ -108,7 +104,7 @@ public class GoalController {
             bar.getStyleClass().add("goal-progress-high");
         }
 
-        // ── Суммы ──
+        // Суммы
         HBox amounts = new HBox();
         amounts.setAlignment(Pos.CENTER_LEFT);
         Label current = new Label(CurrencyFormatter.format(goal.getCurrentAmount()));
@@ -119,14 +115,14 @@ public class GoalController {
         target.getStyleClass().add("goal-amount-target");
         amounts.getChildren().addAll(current, amtSpacer, target);
 
-        // ── Процент ──
+        // Процент
         int percent = (int) Math.min(ratio * 100, 100);
         Label percentLabel = new Label(percent + "%");
         percentLabel.getStyleClass().add("goal-percent");
 
         card.getChildren().addAll(buildSeparator(), bar, amounts, percentLabel);
 
-        // ── Дедлайн ──
+        // Дедлайн
         if (goal.getDeadline() != null) {
             Label dl = new Label("Дедлайн: " + goal.getDeadline().format(DATE_FMT));
             dl.getStyleClass().add("goal-deadline");
@@ -182,7 +178,6 @@ public class GoalController {
                    .doubleValue();
     }
 
-    // ------------------------------------------------------------------ empty state
 
     private Node buildEmptyState() {
         VBox box = new VBox(12);
@@ -205,7 +200,7 @@ public class GoalController {
         return box;
     }
 
-    // ------------------------------------------------------------------ add dialog
+    // окно создания цели
 
     @FXML
     private void openAddDialog() {
@@ -269,7 +264,7 @@ public class GoalController {
         dialog.showAndWait().ifPresent(g -> refresh());
     }
 
-    // ------------------------------------------------------------------ contribute dialog
+    // Пополнение цели
 
     private void openContributeDialog(SavingsGoal goal) {
         Dialog<BigDecimal> dialog = new Dialog<>();
@@ -322,7 +317,7 @@ public class GoalController {
         });
     }
 
-    // ------------------------------------------------------------------ cancel
+    // Отмена целb
 
     private void confirmCancel(SavingsGoal goal) {
         Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);

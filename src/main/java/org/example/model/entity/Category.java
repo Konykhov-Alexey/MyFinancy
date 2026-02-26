@@ -32,7 +32,6 @@ public class Category {
     @Column(precision = 19, scale = 2)
     private BigDecimal monthlyLimit;
 
-    /** Бюджетная группа (nullable — категория без группы). */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "group_id")
     private BudgetGroup group;

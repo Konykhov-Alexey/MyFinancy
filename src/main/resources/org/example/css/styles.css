@@ -1866,20 +1866,28 @@
 .dash-pie-chart .default-color6.chart-pie-legend-symbol { -fx-background-color: #BF5AF2; }
 .dash-pie-chart .default-color7.chart-pie-legend-symbol { -fx-background-color: #FF6B35; }
 
-/* Donut-дырка и центральный label */
+/* Кастомная легенда доната */
+.dash-pie-legend-label {
+    -fx-text-fill: #9CA3AF;
+    -fx-font-size: 11px;
+}
+
+/* Donut-дырка и центральный label (legacy) */
 .pie-donut-hole {
     -fx-fill: #151518;
 }
 
 .pie-center-amount {
     -fx-text-fill: #FFFFFF;
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
+    -fx-font-family: "Inter";
+    -fx-font-size: 18px;
+    -fx-font-weight: 600;
 }
 
 .pie-center-caption {
-    -fx-text-fill: #6B7280;
-    -fx-font-size: 10px;
+    -fx-text-fill: #9CA3AF;
+    -fx-font-family: "Inter";
+    -fx-font-size: 12px;
 }
 
 /* ================================================================

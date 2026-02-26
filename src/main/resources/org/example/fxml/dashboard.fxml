@@ -65,7 +65,7 @@
                     </VBox>
                     <VBox styleClass="card" prefWidth="300" minWidth="300" spacing="12">
                         <Label text="РАСХОДЫ ПО КАТЕГОРИЯМ" styleClass="section-title"/>
-                        <VBox fx:id="pieChartBox" prefHeight="240"/>
+                        <VBox fx:id="pieChartBox" prefHeight="240" VBox.vgrow="ALWAYS" maxHeight="1.7976931348623157E308"/>
                     </VBox>
                 </HBox>
 
