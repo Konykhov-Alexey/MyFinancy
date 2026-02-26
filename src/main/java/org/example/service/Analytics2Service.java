@@ -9,6 +9,7 @@ import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.*;
+import java.util.Arrays;
 
 public class Analytics2Service {
 
@@ -97,7 +98,64 @@ public class Analytics2Service {
     }
 
     public List<AnomalyEntry> detectAnomalies(YearMonth month) {
-        return List.of();
+        LocalDate histStart = month.minusMonths(3).atDay(1);
+        LocalDate histEnd   = month.minusMonths(1).atEndOfMonth();
+        LocalDate currStart = month.atDay(1);
+        LocalDate currEnd   = month.atEndOfMonth();
+
+        try (Session s = HibernateUtil.getSessionFactory().openSession()) {
+            // Historical: category → list of monthly sums
+            List<Object[]> histRows = s.createQuery(
+                    "SELECT t.category.name, EXTRACT(YEAR FROM t.date), EXTRACT(MONTH FROM t.date), SUM(t.amount) " +
+                    "FROM Transaction t " +
+                    "WHERE t.type = :type AND t.date >= :start AND t.date <= :end " +
+                    "GROUP BY t.category.name, EXTRACT(YEAR FROM t.date), EXTRACT(MONTH FROM t.date)",
+                    Object[].class)
+                .setParameter("type",  TransactionType.EXPENSE)
+                .setParameter("start", histStart)
+                .setParameter("end",   histEnd)
+                .list();
+
+            Map<String, List<BigDecimal>> histMap = new LinkedHashMap<>();
+            for (Object[] row : histRows) {
+                histMap.computeIfAbsent((String) row[0], k -> new ArrayList<>()).add((BigDecimal) row[3]);
+            }
+
+            // Current month by category
+            List<Object[]> currRows = s.createQuery(
+                    "SELECT t.category.name, SUM(t.amount) FROM Transaction t " +
+                    "WHERE t.type = :type AND t.date >= :start AND t.date <= :end " +
+                    "GROUP BY t.category.name",
+                    Object[].class)
+                .setParameter("type",  TransactionType.EXPENSE)
+                .setParameter("start", currStart)
+                .setParameter("end",   currEnd)
+                .list();
+
+            List<AnomalyEntry> anomalies = new ArrayList<>();
+            for (Object[] row : currRows) {
+                String cat        = (String) row[0];
+                BigDecimal cur    = (BigDecimal) row[1];
+                List<BigDecimal> hist = histMap.getOrDefault(cat, List.of());
+                if (hist.size() < 2) continue;
+
+                double[] vals    = hist.stream().mapToDouble(BigDecimal::doubleValue).toArray();
+                double mean      = Arrays.stream(vals).average().orElse(0);
+                double variance  = Arrays.stream(vals).map(v -> Math.pow(v - mean, 2)).average().orElse(0);
+                double sigma     = Math.sqrt(variance);
+
+                if (cur.doubleValue() > mean + 2 * sigma) {
+                    double devPct = mean == 0 ? 100.0 : (cur.doubleValue() - mean) / mean * 100;
+                    anomalies.add(new AnomalyEntry(
+                            cat, cur,
+                            BigDecimal.valueOf(mean).setScale(2, RoundingMode.HALF_UP),
+                            BigDecimal.valueOf(sigma).setScale(2, RoundingMode.HALF_UP),
+                            devPct));
+                }
+            }
+            anomalies.sort(Comparator.comparingDouble(AnomalyEntry::deviationPct).reversed());
+            return anomalies;
+        }
     }
 
     // ── Private helpers ──────────────────────────────────────────────
