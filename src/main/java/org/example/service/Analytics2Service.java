@@ -59,7 +59,41 @@ public class Analytics2Service {
     }
 
     public ForecastData getForecast(YearMonth month) {
-        return new ForecastData(BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, "ok");
+        YearMonth prevMonth   = month.minusMonths(1);
+        LocalDate prevStart   = prevMonth.atDay(1);
+        LocalDate prevEnd     = prevMonth.atEndOfMonth();
+        LocalDate currStart   = month.atDay(1);
+        LocalDate today       = LocalDate.now();
+
+        try (Session s = HibernateUtil.getSessionFactory().openSession()) {
+            BigDecimal lastMonthTotal = querySum(s, prevStart, prevEnd);
+            BigDecimal spentSoFar     = querySum(s, currStart, today);
+
+            int prevDays      = prevMonth.lengthOfMonth();
+            int remainingDays = Math.max(0, month.atEndOfMonth().getDayOfMonth() - today.getDayOfMonth());
+
+            BigDecimal avgDaily = lastMonthTotal.compareTo(BigDecimal.ZERO) == 0
+                    ? BigDecimal.ZERO
+                    : lastMonthTotal.divide(BigDecimal.valueOf(prevDays), 2, RoundingMode.HALF_UP);
+
+            BigDecimal projected = spentSoFar.add(
+                    avgDaily.multiply(BigDecimal.valueOf(remainingDays))
+                            .setScale(2, RoundingMode.HALF_UP));
+
+            BigDecimal delta = projected.subtract(lastMonthTotal);
+
+            String status;
+            if (projected.compareTo(lastMonthTotal) <= 0) {
+                status = "ok";
+            } else if (lastMonthTotal.compareTo(BigDecimal.ZERO) == 0) {
+                status = "warn";
+            } else {
+                double pct = delta.divide(lastMonthTotal, 4, RoundingMode.HALF_UP).doubleValue();
+                status = pct <= 0.25 ? "warn" : "danger";
+            }
+
+            return new ForecastData(projected, lastMonthTotal, delta, status);
+        }
     }
 
     public List<AnomalyEntry> detectAnomalies(YearMonth month) {
