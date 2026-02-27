@@ -1622,6 +1622,38 @@
 }
 
 /* ================================================================
+   DEBT CARDS (Phase 9)
+   ================================================================ */
+
+.debt-creditor {
+    -fx-text-fill: #6B7280;
+    -fx-font-size: 11px;
+    -fx-font-family: "JetBrains Mono";
+    -fx-letter-spacing: 0.3;
+}
+
+.debt-rate-info {
+    -fx-text-fill: #6B7280;
+    -fx-font-size: 12px;
+}
+
+.debt-overpayment {
+    -fx-text-fill: #EF4444;
+    -fx-font-size: 12px;
+}
+
+.debt-next-payment {
+    -fx-text-fill: #9CA3AF;
+    -fx-font-size: 12px;
+}
+
+.debt-next-payment-overdue {
+    -fx-text-fill: #EF4444;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+/* ================================================================
    DASHBOARD — Phase 5
    ================================================================ */
 
