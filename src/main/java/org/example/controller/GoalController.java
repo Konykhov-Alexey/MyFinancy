@@ -149,6 +149,12 @@ public class GoalController {
 
             actions.getChildren().addAll(contributeBtn, cancelBtn);
             card.getChildren().add(actions);
+        } else {
+            Button deleteBtn = new Button("Удалить");
+            deleteBtn.getStyleClass().addAll("btn-danger");
+            deleteBtn.setMaxWidth(Double.MAX_VALUE);
+            deleteBtn.setOnAction(e -> confirmDelete(goal));
+            card.getChildren().add(deleteBtn);
         }
 
         return card;
@@ -344,6 +350,20 @@ public class GoalController {
         confirm.showAndWait()
                .filter(b -> b == cancelGoalType)
                .ifPresent(b -> { service.cancel(goal); refresh(); });
+    }
+
+    // Удаление завершённой/отменённой цели
+
+    private void confirmDelete(SavingsGoal goal) {
+        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+        confirm.setTitle("Удалить цель");
+        confirm.setHeaderText("Удалить цель «" + goal.getName() + "»?");
+        confirm.setContentText("Это действие необратимо. Цель будет удалена навсегда.");
+        confirm.getDialogPane().getStylesheets().addAll(goalsPane.getScene().getStylesheets());
+
+        confirm.showAndWait()
+               .filter(b -> b == ButtonType.OK)
+               .ifPresent(b -> { service.delete(goal); refresh(); });
     }
 
     // ------------------------------------------------------------------ helpers
