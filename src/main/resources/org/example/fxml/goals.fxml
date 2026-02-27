@@ -9,6 +9,8 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
@@ -20,13 +22,10 @@
             <HBox alignment="CENTER_LEFT" spacing="12" style="-fx-padding: 26 32 14 32;">
                 <HBox alignment="CENTER_LEFT" spacing="10">
                     <Label text="&#xF4D3;" styleClass="icon-lg icon-muted"/>
-                    <Label text="Цели накопления" styleClass="page-title"/>
+                    <Label text="Цели и долги" styleClass="page-title"/>
                 </HBox>
                 <Pane HBox.hgrow="ALWAYS"/>
-                <Label text="Сортировать:" styleClass="section-title"
-                       style="-fx-padding: 0 4 0 0;"/>
-                <ComboBox fx:id="sortCombo" prefWidth="160"/>
-                <Button onAction="#openAddDialog" styleClass="btn-primary"
+                <Button fx:id="addBtn" onAction="#onAddClick" styleClass="btn-primary"
                         text="Новая цель" graphicTextGap="8">
                     <graphic><Label text="&#xF055;" styleClass="icon-sm icon-primary"/></graphic>
                 </Button>
@@ -36,12 +35,53 @@
     </top>
 
     <center>
-        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
-            <FlowPane fx:id="goalsPane"
-                      hgap="20" vgap="20"
-                      style="-fx-padding: 24 32 32 32;"
-                      prefWrapLength="900"/>
-        </ScrollPane>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+
+            <!-- ── Вкладка Накопления ── -->
+            <Tab text="Накопления">
+                <BorderPane>
+                    <top>
+                        <HBox alignment="CENTER_LEFT" spacing="8"
+                              style="-fx-padding: 12 32 0 32;">
+                            <Label text="Сортировать:" styleClass="section-title"
+                                   style="-fx-padding: 0 4 0 0;"/>
+                            <ComboBox fx:id="sortCombo" prefWidth="160"/>
+                        </HBox>
+                    </top>
+                    <center>
+                        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+                            <FlowPane fx:id="goalsPane"
+                                      hgap="20" vgap="20"
+                                      style="-fx-padding: 20 32 32 32;"
+                                      prefWrapLength="900"/>
+                        </ScrollPane>
+                    </center>
+                </BorderPane>
+            </Tab>
+
+            <!-- ── Вкладка Долги ── -->
+            <Tab text="Долги">
+                <BorderPane>
+                    <top>
+                        <HBox alignment="CENTER_LEFT" spacing="8"
+                              style="-fx-padding: 12 32 0 32;">
+                            <Label text="Сортировать:" styleClass="section-title"
+                                   style="-fx-padding: 0 4 0 0;"/>
+                            <ComboBox fx:id="debtSortCombo" prefWidth="160"/>
+                        </HBox>
+                    </top>
+                    <center>
+                        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+                            <FlowPane fx:id="debtsPane"
+                                      hgap="20" vgap="20"
+                                      style="-fx-padding: 20 32 32 32;"
+                                      prefWrapLength="900"/>
+                        </ScrollPane>
+                    </center>
+                </BorderPane>
+            </Tab>
+
+        </TabPane>
     </center>
 
 </BorderPane>
