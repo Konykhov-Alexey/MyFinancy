@@ -7,7 +7,7 @@
 
         <!-- H2 embedded (файловый режим) -->
         <property name="hibernate.connection.driver_class">org.h2.Driver</property>
-        <property name="hibernate.connection.url">jdbc:h2:file:./data/myfinancy;AUTO_SERVER=TRUE</property>
+        <property name="hibernate.connection.url">jdbc:h2:file:~/.myfinancy/myfinancy;AUTO_SERVER=TRUE</property>
         <property name="hibernate.connection.username">sa</property>
         <property name="hibernate.connection.password"></property>
 
