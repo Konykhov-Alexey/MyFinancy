@@ -47,6 +47,7 @@ promts/
 ### Runtime data ###
 data/
 logs/
+release/
 
 ### Git worktrees ###
 .worktrees/
